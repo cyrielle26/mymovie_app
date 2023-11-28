@@ -2,9 +2,6 @@ const fetch = require('node-fetch');
 
 const baseUrl = 'https://api.themoviedb.org/3/';
 
-const url = ({ urlName }) => {
-   return baseUrl + `${urlName}?language=en-US`;
-}
 
 const options = {
     method: 'GET',
@@ -14,6 +11,7 @@ const options = {
       
     }
 }
+
 const fetchApiData = (endpoint, id = '', queryParams = '') => {
     const apiUrl = `${baseUrl}${endpoint}/${id}${queryParams ? `?${queryParams}&` : ''}language=en-US`;
     return fetch(apiUrl, options).then((res) => res.json());
