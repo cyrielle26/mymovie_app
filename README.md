@@ -1,70 +1,122 @@
-# Getting Started with Create React App
+# My Movie app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## installation
+- [x] styled-components ______  npm install styled-components
+- [x] react-router-dom ______ npm i react-router-dom
+- [x] styled-reset ______ npm i styled-reset
+- [x] Title react helmet ____ npm i react-helmet-async 
+- [x] react-hook-form ______ npm install react-hook-form
+- [] fort-awesome ______npm i --save @fortawesome/fontawesome-svg-core
+		  |____npm i --save @fortawesome/free-solid-svg-icons
+		  |    npm i --save @fortawesome/free-regular-svg-icons
+		  |    npm i --save @fortawesome/free-brands-svg-icons
+	  	  |____ npm i --save @fortawesome/react-fontawesome@latest
+- [x] fetch ____ npm install node-fetch@2 
+- [] swiper ____ npm install swiper
+- [] react-spinner __npm i react-spinners (https://www.davidhu.io/react-spinners/)
 
-## Available Scripts
+## to do 
+- [x] ROUTER set up
+- [x] Components files set up
+- [] api set up
+- [x] GlobalStyled set up
+- [] Loading
+- [] Header UI set up
+- [] GNB set up
+- [] LNB set up
+- [] Footer UI set
+- [] HOME UI set up
+- [] MOVIE UI set up
+- [] SERIES set up
+- [] Detail UI set up
+- [] search UI set up
+- [] header scroll event
+- [] scrollTop
+- [] helmet <HelmetProvider>
+- [] 404
 
-In the project directory, you can run:
 
-### `npm start`
+## in detail
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [x] npm install
+- [x] sitemap 
+- [x] create files / folders
+    - [x] change App.js --> Router.js
+        - [x] Router.js (LINK)
+        - [x] create routes.js 
+        - [] create api.js
+- [] CSS
+ - [x] create GlobalStyled     
+ - [X] import GlobalStyled to Index.js
+ - [x] add ROBOTO font to public / index.html file
+ - [x] create Layout.js component
+ - [] create useScrollTop components import and add useScrollTop to  Detail.js
+- [] URL 
+ - [x] create routes.js a const with a list of object with the main pages URL base
+ - [x] import routes to Router.js, call the object to / Route / path={routes.home}...s
+ - [x] helmet create PageTitle.js component
+ - [] import PageTitle to Home.js
+ - [] create constants.js  IMG_URL (the base URL to get img from CSS/background:url();)
+ - [] api.js :
+    - [] import node fetch : const fetch = require('node-fetch');
+    - [] baseUrl const
+    - [] url const
+    - [] const options to create an object list for the GET method (token-access) <br>
+      method: 'GET',<br>
+  headers: {<br>
+    accept: 'application/json',<br>
+    Authorization: 'access token key check on TMDB' <br>
+  }
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [] Header.js
+   - [] jsx 
+   - [] css
+   - [] function
+   - [] add scroll event 
+   - [] import Header to Router
 
-### `npm test`
+   - []Footer.js
+   - [] jsx
+   - [] css
+   - [] import Footer to Router
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [] Home UI
+    - [] jsx
+    - [] css
+    - function
+    - [] api.js / nowPlaying const for TMDB api request to get nowplaying movie's category data = using fetch .then
+      fetch(url("movie/now_playing"), options).then((res) => res.json())
+    - [] api request setting Home.js:
+        - [] useState : [nowPlayingData, setNowPlayingData]
+        - [] useEffect : async - try ->  const { results : nowResults } = await nowPlaying();   setNowPlayingData(nowResults)
+    - [] MainBanner
+        - import IGM_URL
+        - [] html body
+        - [] jsx :
+            - get data ({data})
+            - data.backdrop_path (banner) 
+            -  data.overview(text description) + limit the text --.slice(0,100) +"..."
+        - [] css
+          - [] css change for screen size change @media screen and (max-widht --)
+        - [] import MainBanner.js to Home : + return - <MainBanner data={nowPlayingData[0]} />
+    - [] ShowMovies
+        - [] import IMG_URL +  { Link } from "react-router-dom"
+        - api.js /  popular / topRated /upComing const for TMDB api request to get those movie's category data
+        - [] html body
+        - [] css
+         - [] import { Swiper, SwiperSlide } from "swiper/react"; + import 'swiper/css';
+         - [] create const params to settle the swiper effect
+         - [] css change for screen size change @media screen and (max-widht --)
+        - [] jsx
+        - [] import ShowMovie.js to Home
+   
+- [] Details Ui
+     - [] jsx
+     - [] css
+     - [] function
+     - [] api.js / movieDetail const for TMDB api request to get those movie's category data
+- [] Search Ui
+ - [] jsx
+     - [] css
+     - [] function
+     - [] api.js / search const for TMDB api request to get those movie's category data
