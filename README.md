@@ -18,7 +18,7 @@
 ## to do 
 - [x] ROUTER set up
 - [x] Components files set up
-- [] api set up
+- [x] api set up
 - [x] GlobalStyled set up
 - [] Loading
 - [] Header UI set up
@@ -57,11 +57,11 @@
  - [x] helmet create PageTitle.js component
  - [] import PageTitle to Home.js
  - [] create constants.js  IMG_URL (the base URL to get img from CSS/background:url();)
- - [] api.js :
-    - [] import node fetch : const fetch = require('node-fetch');
-    - [] baseUrl const
-    - [] url const
-    - [] const options to create an object list for the GET method (token-access) <br>
+ - [x] api.js :
+    - [x] import node fetch : const fetch = require('node-fetch');
+    - [x] baseUrl const
+    - [x]x url const
+    - [x] const options to create an object list for the GET method (token-access) <br>
       method: 'GET',<br>
   headers: {<br>
     accept: 'application/json',<br>
