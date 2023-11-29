@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { MainBanner } from "../../components/MainBanner";
 import { Loading } from "../../components/Loading";
 import { WebpageTitle } from "../../components/WebpageTitle";
+import { MainLayout } from "../../components/MainLayout";
 import { nowPlayingMovie } from "../../api";
+import { ShowMovies } from "./ShowMovies";
 
 
 export const Home = () => {
@@ -13,7 +15,9 @@ export const Home = () => {
     (async () => {
       try {
         const { results: nowMovieResults } = await nowPlayingMovie();
-        setNowPlayingMovieData(nowMovieResults);
+          setNowPlayingMovieData(nowMovieResults);
+          
+
       } catch (error) {
         console.error("Error :" + error);
       }
@@ -31,7 +35,10 @@ export const Home = () => {
             <>
                               {/* Remove the curly braces around nowPlayingMovieData[0] */}
                               <WebpageTitle titleName={"Home"}/>
-                              <MainBanner data={nowPlayingMovieData[0]} showTitleBlock={true} /> 
+                              <MainBanner data={nowPlayingMovieData[0]} showTitleBlock={true} showBlurr={false} /> 
+                              <MainLayout>
+                                  <ShowMovies titleName={"NowPlaying! New movies"} movieData={nowPlayingMovieData}/>
+                              </MainLayout>
                               
                                 
             </>

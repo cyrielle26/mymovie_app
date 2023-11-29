@@ -19,7 +19,7 @@ body{
 background-color: ${MainColor.bgColor};
 color: ${MainColor.whiteColor};
 letter-spacing: 1px;
-word-break:break-all;
+word-break:break-word;
 }
 
 ul, li {
