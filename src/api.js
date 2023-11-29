@@ -12,27 +12,72 @@ const options = {
     }
 }
 
-const fetchApiData = (endpoint, id = '', queryParams = '') => {
-    const apiUrl = `${baseUrl}${endpoint}/${id}${queryParams ? `?${queryParams}&` : ''}language=en-US`;
-    return fetch(apiUrl, options).then((res) => res.json());
-};
+const url = (urlName) => {
+    return baseUrl + `${urlName}?language=en-US`;
+  }
 
-// Movies API
-export const movieDetail = (id) => fetchApiData('movie', id);
-export const movieCredits = (id) => fetchApiData('movie', id, 'credits');
-export const movieRecommendations = (id) => fetchApiData('movie', id, 'recommendations');
-export const movieReleaseDates = (id) => fetchApiData('movie', id, 'release_dates');
-export const nowPlayingMovie = () => fetchApiData('movie', 'now_playing');
-export const popularMovie = () => fetchApiData('movie', 'popular');
-export const upcomingMovie = () => fetchApiData('movie', 'upcoming');
-export const topRatedMovie = () => fetchApiData('movie', 'top_rated');
+//movies api URL
 
-// Series API
-export const serieDetail = (id) => fetchApiData('tv', id);
-export const serieCredits = (id) => fetchApiData('tv', id, 'credits');
-export const airingTodaySerie = () => fetchApiData('tv', 'airing_today');
-export const popularSerie = () => fetchApiData('tv', 'popular');
-export const topRatedSerie = () => fetchApiData('tv', 'top_rated');
 
-// Search API
-export const search = (type, keyword) => fetchApiData(`search/${type}`, '', `query=${keyword}`);
+export const movieDetail = (id) => {
+    const movieDetailUrl =  baseUrl + `movie/${id}?language=en-US`;
+    return fetch(movieDetailUrl, options).then((res) => res.json());
+}
+
+export const movieCredits = (id) => {
+    const movieCreditsUrl = baseUrl + `movie/${id}/credits?language=en-US`;
+    return fetch(movieCreditsUrl, options).then((res) => res.json());
+}
+
+export const movieRecommendations = (id) => {
+    const movieRecommendationUrl = baseUrl + `movie/${id}/recommendations?language=en-US`;
+    return fetch(movieRecommendationUrl, options).then((res) => res.json());
+}
+
+export const movieReleaseDates = (id) => {
+    const movieReleaseDatesUrl = baseUrl + `movie/${id}/release_dates?language=en-US`;
+    return fetch(movieReleaseDatesUrl, options).then((res) => res.json());
+}
+
+export const nowPlayingMovie = () => fetch(url("movie/now_playing"), options).then((res) => res.json());
+
+export const popularMovie = () => fetch(url("movie/popular"), options).then((res) => res.json());
+
+export const upcomingMovie = () => fetch(url("movie/upcoming"), options).then((res) => res.json());
+
+export const topratedMovie = () => fetch(url("movie/top_rated"), options).then((res) => res.json());
+
+//**********************************************************************************************************************************************************
+
+
+//series api URL
+
+
+export const serieDetail = (id) => {
+    const serieDetailUrl =  baseUrl + `tv/${id}?language=en-US`;
+    return fetch(serieDetailUrl, options).then((res) => res.json());
+}
+
+export const serieCredits = (id) => {
+    const serieCreditsUrl = baseUrl + `tv/${id}/credits?language=en-US`;
+    return fetch(serieCreditsUrl, options).then((res) => res.json());
+}
+
+
+export const airingTodaySerie = () => fetch(url("tv/airing_today"), options).then((res) => res.json());
+
+export const popularSerie = () => fetch(url("tv/popular"), options).then((res) => res.json());
+
+export const topratedSerie = () => fetch(url("tv/top_rated"), options).then((res) => res.json());
+
+
+
+
+
+
+// you will have to use UseParams when calling the movieDetail const to another components
+  
+export const search = (type, keyword) => {
+    const searchUrl = baseUrl + `search/${type}?query=${keyword}&language=en-US`;
+    return fetch(searchUrl, options).then((res) => res.json());
+}

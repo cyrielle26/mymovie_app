@@ -25,12 +25,10 @@ export const Home = () => {
         <Loading />
       ) : (
         <div>
-          {nowPlayingMovieData &&  (
+          {nowPlayingMovieData && (
             <>
               {/* Remove the curly braces around nowPlayingMovieData[0] */}
-                              <MainBanner data={nowPlayingMovieData[0]} showTitleBlock={true} /> 
-                              
-                                
+              <MainBanner data={nowPlayingMovieData[0]} />
             </>
           )}
         </div>

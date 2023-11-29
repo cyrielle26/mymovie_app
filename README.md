@@ -21,7 +21,7 @@
 - [x] api set up
 - [x] GlobalStyled set up
 - [] Loading
-- [] Header UI set up
+- [x] Header UI set up
 - [] GNB set up
 - [] LNB set up
 - [] Footer UI set
@@ -69,11 +69,11 @@
   }
 
 - [] Header.js
-   - [] jsx 
-   - [] css
+   - [x] jsx 
+   - [x] css
    - [] function
    - [] add scroll event 
-   - [] import Header to Router
+   - [x] import Header to Router
 
    - []Footer.js
    - [] jsx
