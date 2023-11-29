@@ -6,7 +6,7 @@
 - [x] styled-reset ______ npm i styled-reset
 - [x] Title react helmet ____ npm i react-helmet-async 
 - [x] react-hook-form ______ npm install react-hook-form
-- [] fort-awesome ______npm i --save @fortawesome/fontawesome-svg-core
+- [x] fort-awesome ______npm i --save @fortawesome/fontawesome-svg-core
 		  |____npm i --save @fortawesome/free-solid-svg-icons
 		  |    npm i --save @fortawesome/free-regular-svg-icons
 		  |    npm i --save @fortawesome/free-brands-svg-icons
