@@ -56,7 +56,7 @@
  - [x] import routes to Router.js, call the object to / Route / path={routes.home}...s
  - [x] helmet create PageTitle.js component
  - [] import PageTitle to Home.js
- - [] create constants.js  IMG_URL (the base URL to get img from CSS/background:url();)
+ - [x] create constants.js  IMG_URL (the base URL to get img from CSS/background:url();)
  - [x] api.js :
     - [x] import node fetch : const fetch = require('node-fetch');
     - [x] baseUrl const
@@ -81,27 +81,27 @@
    - [] import Footer to Router
 
 - [] Home UI
-    - [] jsx
+    - [x] jsx
     - [] css
     - function
-    - [] api.js / nowPlaying const for TMDB api request to get nowplaying movie's category data = using fetch .then
+    - [x] api.js / nowPlaying const for TMDB api request to get nowplaying movie's category data = using fetch .then
       fetch(url("movie/now_playing"), options).then((res) => res.json())
-    - [] api request setting Home.js:
+    - [x] api request setting Home.js:
         - [] useState : [nowPlayingData, setNowPlayingData]
         - [] useEffect : async - try ->  const { results : nowResults } = await nowPlaying();   setNowPlayingData(nowResults)
-    - [] MainBanner
+    - [x] MainBanner
         - import IGM_URL
-        - [] html body
-        - [] jsx :
+        - [x] html body
+        - [x] jsx :
             - get data ({data})
             - data.backdrop_path (banner) 
             -  data.overview(text description) + limit the text --.slice(0,100) +"..."
-        - [] css
+        - [x] css
           - [] css change for screen size change @media screen and (max-widht --)
-        - [] import MainBanner.js to Home : + return - <MainBanner data={nowPlayingData[0]} />
+        - [x] import MainBanner.js to Home : + return - <MainBanner data={nowPlayingData[0]} />
     - [] ShowMovies
         - [] import IMG_URL +  { Link } from "react-router-dom"
-        - api.js /  popular / topRated /upComing const for TMDB api request to get those movie's category data
+        - [x]api.js /  popular / topRated /upComing const for TMDB api request to get those movie's category data
         - [] html body
         - [] css
          - [] import { Swiper, SwiperSlide } from "swiper/react"; + import 'swiper/css';

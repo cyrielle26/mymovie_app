@@ -15,9 +15,10 @@ ${reset}
     box-sizing: border-box;
 }
 body{
+    font-family: 'roboto';
 background-color: ${MainColor.bgColor};
 color: ${MainColor.whiteColor};
-letter-spacing: -1px;
+letter-spacing: 1px;
 word-break:break-all;
 }
 
