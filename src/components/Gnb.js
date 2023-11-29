@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse } from "@fortawesome/free-solid-svg-icons";
-import { faFilm } from "@fortawesome/free-solid-svg-icons";
-import { faTv } from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faFilm,  faTv} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { routes } from "../routes";
 
