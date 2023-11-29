@@ -1,13 +1,47 @@
 import styled from "styled-components";
-//import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { faFilm } from "@fortawesome/free-solid-svg-icons";
+import { faTv } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import { routes } from "../routes";
 
-const Container = styled.div`
+const NavWrap = styled.ul`
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size:16px;
 width: 350px;
 height:30px;
-background-color: lightblue;`;
+a {
+    display: flex;
+    align-items: center;
+}
+h3{
+    margin-left: 5px;
+}
+`;
+
 
 export const Gnb = () => {
-    return <Container>
+    return <NavWrap>
+        <li>
+            <Link to={routes.home}>
+                <FontAwesomeIcon icon={faHouse} /><h3>HOME</h3>
+            </Link>
+        </li>
+        <li>
+            <Link to={routes.movies}>
+                <FontAwesomeIcon icon={faFilm} />
+                <h3>MOVIES</h3>
+                </Link>
+        </li>
+        <li>
+            <Link to={routes.series}>
+                <FontAwesomeIcon icon={faTv} />
+                <h3>SERIES</h3>
+            </Link>
+        </li>
 
-    </Container>
+    </NavWrap>
 }
