@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { Reset } from "styled-reset";
+import reset from "styled-reset";
 
 const MainColor = {
     whiteColor: "#F9F9F9",
@@ -8,7 +8,7 @@ const MainColor = {
 
 export const GlobalStyled = createGlobalStyle`
 //add the reset package
-${Reset}
+${reset}
 
 //edit the GlobalStyled content
 *{
@@ -16,7 +16,7 @@ ${Reset}
 }
 body{
 background-color: ${MainColor.bgColor};
-color: white;
+color: ${MainColor.whiteColor};
 letter-spacing: -1px;
 word-break:break-all;
 }
