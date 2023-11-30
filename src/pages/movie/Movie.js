@@ -3,7 +3,7 @@ import { MainBanner } from "../../components/MainBanner";
 import { Loading } from "../../components/Loading";
 import { WebpageTitle } from "../../components/WebpageTitle";
 import { nowPlayingMovie, genreMovieList} from "../../api";
-import { MovieSerieLayout } from "../../components/MovieSerieLayout";
+import { GenreList } from "../../components/GenreList";
 
 
 
@@ -44,21 +44,11 @@ export const Movie = () => {
                          {nowPlayingMovieData &&  (
             <>
                             <WebpageTitle titleName={"Movies"}/>
-                            <MainBanner data={nowPlayingMovieData[0]} showTitleBlock={false} showBlurr={true} />                       
+                                <MainBanner data={nowPlayingMovieData[0]} showTitleBlock={false} showBlurr={true} />   
+                                   
             </>
                         )}
-                        {genreMovielistData &&  (
-                            <>
-                               {genreMovielistData.map((genre, index) => (
-                <MovieSerieLayout
-                  key={index}
-                  genreID={genre.genreId} 
-                  titleName={"Don't know what movie to watch?"}
-                  subtitleName={"Movie genres"}
-                />
-              ))}
-                            </>
-                        )}
+                        <GenreList titleName={"Don't know what movie to watch?"} subtitleName={"Movie genres"}/> 
                     </div>
             )
         }
