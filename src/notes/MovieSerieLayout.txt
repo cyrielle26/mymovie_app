@@ -1,0 +1,57 @@
+import styled from "styled-components";
+import { useState , useEffect} from "react";
+import { Link } from "react-router-dom";
+
+const Container = styled.div`
+width:100%;
+height:80vh;
+display:flex;
+background-color:blue;`;
+
+const Title = styled.h3``;
+
+const GenreWrap = styled.div`
+width: 800px;
+height: 800px;
+background-color: antiquewhite;
+`;
+const SubTitle = styled.h3``;
+
+const Button = styled.button`
+all:unset;
+border-radius: 15px;
+cursor: pointer;
+font-size:20px;
+opacity:55%;
+border: solid 2px #F9F9F9;
+height: 40px;
+line-height: 40px;
+background-color: ${(props) => props.$bgColor};
+
+`;
+
+export const MovieSerieLayout = ({ genreID, titleName, subtitleName }) => {
+
+    const [onClickButton, setOnclickButton] = useState('#040714');
+    
+
+    const onClickButtonHandler = () => {
+        const onclickChange =  onClickButton === "#040714" ? "#95969A" : "#040714"; 
+        setOnclickButton(onclickChange); 
+    }
+
+    return (
+        <Container>
+            <Title>{titleName}</Title>
+
+        
+            <GenreWrap>
+                <SubTitle>{subtitleName}</SubTitle>
+                <Button $bgColor={onClickButton} onClick={onClickButtonHandler}>
+                <h1>{genreID}</h1>
+                </Button>
+            </GenreWrap>
+
+        </Container>
+    )
+}

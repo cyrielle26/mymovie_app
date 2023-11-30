@@ -12,7 +12,9 @@
 		  |    npm i --save @fortawesome/free-brands-svg-icons
 	  	  |____ npm i --save @fortawesome/react-fontawesome@latest
 - [x] fetch ____ npm install node-fetch@2 
-- [] swiper ____ npm install swiper
+- [x] swiper ____ npm install swiper
+- [] chip npm i @nextui-org/react framer-motion
+- [] npm install -D tailwindcss
 - [] react-spinner __npm i react-spinners (https://www.davidhu.io/react-spinners/)
 
 ## to do 

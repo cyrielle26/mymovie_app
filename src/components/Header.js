@@ -24,7 +24,9 @@ justify-content:space-around;`;
 const Logo = styled.div`
 font-size:28px;
 font-weight:700;
-margin-right:80px;`;
+margin-right:80px;
+font-family:'oswald';
+`;
 
 
 export const Header = () => {

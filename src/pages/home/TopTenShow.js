@@ -102,7 +102,7 @@ const params = {
 
 export const TopTenShow = ({ movieData, titleName, type }) => {
     
-    console.log(movieData);
+   
     return (
         <Container>
         <Title>{titleName}</Title>

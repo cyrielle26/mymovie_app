@@ -24,7 +24,7 @@ export const Movie = () => {
                 const { results: nowMovieResults } = await nowPlayingMovie();
                 setNowPlayingMovieData(nowMovieResults);
 
-                const { results: genreMovieResults } = await (genreMovieList);
+                const { result: genreMovieResults } = await (genreMovieList);
                 setGenreMovieListData(genreMovieResults);
                 
             } catch (error){
