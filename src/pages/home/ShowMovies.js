@@ -25,6 +25,7 @@ height: 216px;
 background: url(${IMG_URL}/w342/${(props)=> props.$bgUrl}) no-repeat center / cover;
 border-radius: 5px;
 margin-bottom: 15px;
+box-shadow: 10px 10px 10px black;
 @media screen and (max-width: 450px) {
     height: 150px;
     margin-bottom: 15px;
