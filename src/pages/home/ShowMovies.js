@@ -40,6 +40,16 @@ font-size: 16px;
     line-height: 22px;
 }`;
 
+const SerieTitle = styled.h3`
+margin-left: 15px;
+margin-top: 10px;
+max-width: 300px;
+font-size: 16px;
+@media screen and (max-width: 450px) {
+    font-size:14px;
+    line-height: 22px;
+}`;
+
 
 const params = {
     slidesPerView: 5.5,
@@ -74,6 +84,7 @@ export const ShowMovies = ({ movieData, titleName,type }) => {
                     <Link to={`/${type}/${data.id}`}>
                         <CoverBg $bgUrl={data.poster_path} />
                         <MovieTitle>{data.title}</MovieTitle>
+                        <SerieTitle>{data.name}</SerieTitle>
                     </Link>
                 </SwiperSlide>
             ))}
