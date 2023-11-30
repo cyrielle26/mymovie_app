@@ -1,8 +1,8 @@
 export const routes = {
     home: "/",
     search: "/search",
-    movieDetail: "/moviedetail:id",
-    serieDetail: "/seriedetail:id",
+    movieDetail: "/movie/:id",
+    serieDetail: "/tv/:id",
     movies: "/movies",
     series: "/series",
 }

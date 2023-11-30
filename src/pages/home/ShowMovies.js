@@ -64,14 +64,14 @@ const params = {
     }
 }
 
-export const ShowMovies = ({ movieData, titleName }) => {
+export const ShowMovies = ({ movieData, titleName,type }) => {
     return (
         <Container>
         <Title>{titleName}</Title>
         <Swiper  {...params} >
             {movieData.map((data) => (
                 <SwiperSlide key={data.id}>
-                    <Link to={`/detail/${data.id}`}>
+                    <Link to={`/${type}/${data.id}`}>
                         <CoverBg $bgUrl={data.poster_path} />
                         <MovieTitle>{data.title}</MovieTitle>
                     </Link>
