@@ -80,7 +80,7 @@ export const GenreList = ({genreId, titleName, subtitleName}) => {
 
 useEffect(() => {
   const fetchMoviePoster = async () => {
-    
+
     try {
       
 
@@ -98,9 +98,7 @@ useEffect(() => {
 
   const onClickGetGenreHandler = async (genre) => {
     try {
-      // const data = await search("movie", genre.id);
-      // setPosterUrl(data.results);// Set the active genre ID when the button is clicked
-
+  
       setActiveGenreId(genre.id);
 
     } catch (error) {
