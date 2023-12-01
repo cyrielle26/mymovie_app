@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from '@emotion/styled'
 import { useState, useEffect } from "react";
 import { genreMovieList } from "../api";
 import { search } from "../api";
@@ -55,12 +55,11 @@ const GenreWrap = styled.ul`
 //   background: #f9f9f9;
 // `;
 
-export const GenreList = ({genreId, titleName, subtitleName, active}) => {
+export const GenreList = ({genreId, titleName, subtitleName}) => {
   const [genresData, setGenresData] = useState([]);
   const [activeGenreId, setActiveGenreId] = useState(false);
   const [activeButton, setActiveButton] = useState('');
-
-  // const [posterUrl, setPosterUrl] = useState([]);
+  const [posterUrl, setPosterUrl] = useState([]);
 
   useEffect(() => {
     const fetchGenresData = async () => {
@@ -77,24 +76,25 @@ export const GenreList = ({genreId, titleName, subtitleName, active}) => {
     fetchGenresData();
   }, []);
 
-  // useEffect(() => {
-  //   const fetchMoviePoster = async () => {
-  //     try {
-  //       const data = await search("movie", activeGenreId);
-        
-  //       const findGenre = data.results.find((result) => result.id === genreId);
-  //       if (findGenre) {
-  //         setPosterUrl(IMG_URL + findGenre.poster_path);
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching movie data:", error);
-  //     }
-  //   };
 
-  //   if (activeGenreId) {
-  //     fetchMoviePoster();
-  //   }
-  // }, [activeGenreId, genreId]);
+
+useEffect(() => {
+  const fetchMoviePoster = async () => {
+    
+    try {
+      
+
+
+    } catch (error) {
+      console.error("Error fetching movie data:", error);
+    }
+  };
+
+ 
+    fetchMoviePoster();
+  
+}, []);
+
 
   const onClickGetGenreHandler = async (genre) => {
     try {
@@ -127,8 +127,6 @@ export const GenreList = ({genreId, titleName, subtitleName, active}) => {
               onClickGetGenreHandler(genre);
               onClickColorHandler();
             }}
-            
-  
           >
             {genre.name}
           </Button>
