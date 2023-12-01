@@ -16,6 +16,7 @@
 - [] chip npm i @nextui-org/react framer-motion
 - [] npm install -D tailwindcss
 - [] react-spinner __npm i react-spinners (https://www.davidhu.io/react-spinners/)
+- [] npm install --save @emotion/react
 
 ## to do 
 - [x] ROUTER set up

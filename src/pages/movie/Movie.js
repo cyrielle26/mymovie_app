@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { MainBanner } from "../../components/MainBanner";
 import { Loading } from "../../components/Loading";
 import { WebpageTitle } from "../../components/WebpageTitle";
-import { nowPlayingMovie, genreMovieList} from "../../api";
+import { nowPlayingMovie} from "../../api";
 import { GenreList } from "../../components/GenreList";
 
 
@@ -14,7 +14,7 @@ export const Movie = () => {
 
     const [isLoading, setIsLoading] = useState();
     const [nowPlayingMovieData, setNowPlayingMovieData] = useState();
-    const [genreMovielistData, setGenreMovieListData] = useState([]);
+   
 
 
 
@@ -24,8 +24,6 @@ export const Movie = () => {
                 const { results: nowMovieResults } = await nowPlayingMovie();
                 setNowPlayingMovieData(nowMovieResults);
 
-                const { results: genreMovieResults } = await (genreMovieList);
-                setGenreMovieListData(genreMovieResults);
                 
             } catch (error){
                 console.error("Error:" + error)
