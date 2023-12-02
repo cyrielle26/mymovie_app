@@ -133,3 +133,13 @@
   - [] css
   - []function :
     -[] component GenreList
+-[] Mobile version
+  -[] Header
+  -[] GNB
+  -[] GenreList
+  -[] MainLayout
+  -[] DetailLayout
+-[] 404 NotFoundPage
+  -[]jsx
+  -[]css
+   -[]@mediaquery
