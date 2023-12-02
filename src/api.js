@@ -93,6 +93,10 @@ export const genreList = (type) => {
     fetch(genreUrl, options).then((res) => res.json());
 }
 
-    
+export const discover = (type) => {
+    const discoverUrl = baseUrl + `discover/${type}?${include}&language=en-US&page=1$sort_by=popularity.desc&${query}`;
+    fetch(discoverUrl, options).then((res) => res.json());
+}
+
     
    

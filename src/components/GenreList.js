@@ -130,7 +130,7 @@ export const GenreList = ({ titleName, subtitleName }) => {
         {genresData.map((genre) => (
           <Button
             key={genre.id}
-            to={`search/movie?query=${genre.id}&language=en-US`} // Replace with the actual path you want the Link to navigate to
+            to={`search/${type}?query=${genre.id}&language=en-US`} // Replace with the actual path you want the Link to navigate to
             isactive={activeGenreId === genre.id ? "true" : undefined} // Check if the genre ID is active + activate the prop style
             onClick={() => {
               onClickGetGenreHandler(genre);
