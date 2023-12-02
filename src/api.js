@@ -18,7 +18,7 @@ const url = (urlName) => {
 
 //movies api URL
 
-
+// you will have to use UseParams when calling the movieDetail const to another components
 export const movieDetail = (id) => {
     const movieDetailUrl =  baseUrl + `movie/${id}?language=en-US`;
     return fetch(movieDetailUrl, options).then((res) => res.json());
@@ -58,7 +58,7 @@ export const topratedMovie = () => fetch(url("movie/top_rated"), options).then((
 
 //series api URL
 
-
+// you will have to use UseParams when calling the serieDetail const to another components
 export const serieDetail = (id) => {
     const serieDetailUrl =  baseUrl + `tv/${id}?language=en-US`;
     return fetch(serieDetailUrl, options).then((res) => res.json());
@@ -81,7 +81,7 @@ export const topratedSerie = () => fetch(url("tv/top_rated"), options).then((res
 
 
 
-// you will have to use UseParams when calling the movieDetail const to another components
+
   
 export const search = (type, keyword) => {
     const searchUrl = baseUrl + `search/${type}?query=${keyword}&language=en-US`;

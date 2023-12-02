@@ -149,7 +149,7 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
             isactive={activeGenreId === genre.id ? "true" : undefined} // Check if the genre ID is active + activate the prop style
             onClick={() => {
               onClickGetGenreHandler(genre);
-              onClickColorHandler();
+              onClickColorHandler(); 
             }}
           >
             {genre.name}

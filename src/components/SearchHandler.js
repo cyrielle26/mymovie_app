@@ -61,12 +61,13 @@ export const SearchHandler = () => {
     return
     
     <SearchWrap>
-        <Button>
+        <SearchButton>
         <Link to={routes.search}>
             <FontAwesomeIcon icon={faMagnifyingGlass} />
             <h3>SEARCH</h3>
         </Link>
-        </Button>
+        </SearchButton>
 
     </SearchWrap>
 }
+

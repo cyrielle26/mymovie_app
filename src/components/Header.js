@@ -30,6 +30,32 @@ font-family:'oswald';
 
 
 export const Header = () => {
+    const headerRef = useRef();
+ 
+   
+
+  
+    const scrollHandler = () => {
+      const pageY = window.scrollY;
+  
+      if (pageY > 300) {
+        headerRef.current.style.position = "fixed";
+        headerRef.current.style.backgroundColor = "rgba(0,0,0,0.7)";
+        headerRef.current.style.backdropFilter = "blur(3px)";
+      } else {
+        headerRef.current.style.position = "absolute";
+        headerRef.current.style.backgroundColor = "transparent";
+        headerRef.current.style.backdropFilter = "blur(0px)";
+      }
+      };
+  
+    
+    
+  
+    useEffect(() => {
+      return window.addEventListener("scroll", scrollHandler);
+    });
+
     return (
         <Sheader>
             <GnbWrap>

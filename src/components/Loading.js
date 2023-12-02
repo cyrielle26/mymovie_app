@@ -6,6 +6,7 @@ width: 100%;
 display: flex;
 align-items: center;
 justify-content: center;
+padding: 300px;
 `;
 
 
@@ -14,6 +15,6 @@ justify-content: center;
 export const Loading = () => {
     return (
     <Wrap>
-        <PropagateLoader color="#f0f9f7" />
+        <PropagateLoader color="#f9f9f9" />
     </Wrap>)
 }
