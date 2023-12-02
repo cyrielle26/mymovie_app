@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import { serieDetail } from "../../api";
 import { Loading } from "../../components/Loading";
 import { IMG_URL } from "../../constants";
-import { useScrollTop } from "../../lib/UsescrollTop";
+import { scrollTop } from "../../lib/scrollTop";
 
 const Container = styled.div`
 padding: 100px 150px 100px;
@@ -112,7 +112,7 @@ export const DetailSerie = (genres) => {
     const { id } = useParams();
     const [detailData, setDetailData] = useState();
     const [isLoading, setIsLoading] = useState(true);
-    useScrollTop();
+    scrollTop();
     
 
     useEffect(() => {

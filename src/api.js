@@ -85,17 +85,20 @@ export const topratedSerie = () => fetch(url("tv/top_rated"), options).then((res
   
 export const search = (type, keyword) => {
     const searchUrl = baseUrl + `search/${type}?query=${keyword}&language=en-US`;
-    return fetch(searchUrl, options).then((res) => res.json());
+    return fetch(searchUrl, options).then((res) => res.json()).then((data) => {
+        console.log(data);  // Log the response to the console
+        return data;
+      });;
 }
 
 export const genreList = (type) => {
     const genreUrl = baseUrl + `genre/${type}/list?language=en-US`;
-    fetch(genreUrl, options).then((res) => res.json());
+    return fetch(genreUrl, options).then((res) => res.json());
 }
 
-export const discover = (type, include, query) => {
-    const discoverUrl = baseUrl + `discover/${type}?${include}&language=en-US&page=1$sort_by=popularity.desc&${query}`;
-    fetch(discoverUrl, options).then((res) => res.json());
+export const discover = (type) => {
+    const discoverUrl = baseUrl + `discover/${type}?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
+    return fetch(discoverUrl, options).then((res) => res.json());
 }
 
     

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom"
 
-export const useScrollTop = () => {
+export const scrollTop = () => {
     //const lo = useLocation();
     //=> change the current page path content as object
     //console.log(lo);

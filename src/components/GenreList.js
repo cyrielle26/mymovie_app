@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { useState, useEffect } from "react";
 import { genreList } from "../api";
-import { search } from "../api";
+import { discover } from '../api';
 import { Link, useParams } from 'react-router-dom';
 import { IMG_URL } from "../constants";
 
@@ -63,15 +63,17 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
   const [activeGenreId, setActiveGenreId] = useState(false);
   const [activeButton, setActiveButton] = useState('');
   const [movieData, setMovieData] = useState([]);
-  const {type} = useParams;
+  const [tvData, setTvData] = useState([]);
+  let {type} = useParams;
 
   //Get data from the  the {genreList} type Movie api request
   useEffect(() => {
     const fetchMovieGenresData = async () => {
       type = "movie";
       try {
-        const getMovieGenreData = await genreList('Tv');
+        const getMovieGenreData = await genreList('movie');
         setMovieGenresData(getMovieGenreData.genres);
+        console.log(getMovieGenreData); 
         
       } catch (error) {
         console.error("Error fetching movie genres data:", error);
@@ -83,10 +85,11 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
     //Get data from the  the {genreList} type Tv api request
     useEffect(() => {
       const fetchSerieGenresData = async () => {
-        type = "Tv";
+        type = "tv";
         try {
-          const getSerieGenreData = await genreList('movie');
+          const getSerieGenreData = await genreList('tv');
           setSerieGenresData(getSerieGenreData.genres);
+          console.log(getSerieGenreData); 
           
         } catch (error) {
           console.error("Error fetching serie genres data:", error);
@@ -120,7 +123,7 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
   useEffect(() => {
     const fetchMoviePoster = async () => {
       try {
-        const { results } = await search("movie", activeGenreId);
+        const { results } = await discover("movie", activeGenreId);
         setMovieData(results);
       } catch (error) {
         console.error("Error fetching movie data:", error);
@@ -138,10 +141,10 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
 
   useEffect(() => {
     const fetchTVPoster = async () => {
-      search("Tv");
+      discover("tv");
       try {
-        const { results } = await search(activeGenreId);
-        setMovieData(results);
+        const { results } = await discover(activeGenreId);
+        setTvData(results);
       } catch (error) {
         console.error("Error fetching tv data:", error);
       }
@@ -188,9 +191,14 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
 
        {movieData.map((movie) => (
   <Link key={movie.id} to={`/movie/${movie.id}`}>
-    <MoviePoster
-      style={{ backgroundImage: `url(${IMG_URL}${movie.poster_path})` }}
-    />
+    <MoviePoster $moviebgUrl={tvData.poster_path} />
+  </Link>
+))} 
+
+      
+{tvData.map((tv) => (
+  <Link key={tv.id} to={`/tv/${tv.id}`}>
+    <SeriePoster $tvbgUrl={tvData.poster_path} />
   </Link>
 ))} 
 
