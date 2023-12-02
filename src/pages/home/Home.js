@@ -6,9 +6,7 @@ import { MainLayout } from "../../components/MainLayout";
 import { nowPlayingMovie } from "../../api";
 import { popularMovie } from "../../api";
 import { upcomingMovie } from "../../api";
-import { topratedMovie } from "../../api";
 import { popularSerie } from "../../api";
-import { topratedSerie } from "../../api";
 import { airingTodaySerie } from "../../api";
 import { ShowMovies } from "./ShowMovies";
 import { TopTenShow } from "./TopTenShow";
@@ -19,8 +17,6 @@ export const Home = () => {
   const [popMovieData, setPopMovieData] = useState();
   const [upcomingMovieData, setUpcomingMovieData] = useState();
   const [popSerieData, setPopSerieData] = useState();
-  const [topRatedMovie, setTopRatedMovie] = useState();
-  const [topRatedSerie, setTopRatedSerie] = useState();
   const [airingTodayData, setAiringTodayData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -37,12 +33,6 @@ export const Home = () => {
         const { results: upMovieResults } = await upcomingMovie();
         setUpcomingMovieData(upMovieResults);
 
-        const { results: topMovieResults } = await topratedMovie();
-        setTopRatedMovie(topMovieResults);
-
-        const { results: topSerieResults } = await topratedSerie();
-        setTopRatedMovie(topSerieResults);
-        
         const { results: popSerieResults } = await popularSerie();
         setPopSerieData(popSerieResults);
 
@@ -66,7 +56,6 @@ export const Home = () => {
         <div>
           {nowPlayingMovieData &&  (
             <>
-                              {/* Remove the curly braces around nowPlayingMovieData[0] */}
                               <WebpageTitle titleName={"Home"}/>
                               <MainBanner data={nowPlayingMovieData[0]} showTitleBlock={true} showBlurr={false} /> 
                               <MainLayout>

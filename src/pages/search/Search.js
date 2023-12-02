@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
-import { movieSearch } from "../../api";
+import { search } from "../../api";
 import { useState } from "react";
-import { Layout } from "../../components/Layout";
+import { MainLayout } from "../../components/MainLayout";
 import styled from "styled-components";
 import { IMG_URL } from "../../constants";
 
@@ -34,7 +34,7 @@ const Bg = styled.div`
 
 const MovieTitle = styled.div``;
 
-export const SearchResults = () => {
+export const Search = () => {
   //api에 검색 요청에 맞게 url연결과 매개변수 작성할것
   //form 사용시 useForm 사용할것
   const {
@@ -50,7 +50,7 @@ export const SearchResults = () => {
   const searchHandler = async (data) => {
     const { search: keyword } = data;
     try {
-      const { results } = await movieSearch(keyword);
+      const { results } = await search(keyword);
       setTerm(results);
     } catch (error) {
       console.log(error);
@@ -71,7 +71,7 @@ export const SearchResults = () => {
         />
       </Form>
 
-      <Layout>
+      <MainLayout>
         {term && (
           <ConWrap>
             {term.map((data) => (
@@ -88,7 +88,7 @@ export const SearchResults = () => {
             ))}
           </ConWrap>
         )}
-      </Layout>
+      </MainLayout>
     </div>
   );
 };

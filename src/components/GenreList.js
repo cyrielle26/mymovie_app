@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { useState, useEffect } from "react";
 import { genreList } from "../api";
 import { search } from "../api";
+import { Link, useParams } from 'react-router-dom';
 import { IMG_URL } from "../constants";
 
 const Container = styled.div`
@@ -40,20 +41,20 @@ const GenreWrap = styled.ul`
   margin-bottom: 40px;
 `;
 
-// const MoviePosterWrap= styled.div`
-//   display: grid;
-//   grid-template-columns: repeat(5, 1fr);
-//   column-gap: 30px;
-//   row-gap: 50px;
-// `;
+const MoviePosterWrap= styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 30px;
+  row-gap: 50px;
+`;
 
-// const MoviePoster = styled.div`
-//   height: 250px;
-//   width: 185px;
-//   border-radius: 5px;
-//   box-shadow: 10px 10px 10px black;
-//   background: #f9f9f9;
-// `;
+const MoviePoster = styled.div`
+  height: 250px;
+  width: 185px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px black;
+  background: #f9f9f9;
+`;
 
 export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSerieGenreList }) => {
   
@@ -62,14 +63,14 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
   const [activeGenreId, setActiveGenreId] = useState(false);
   const [activeButton, setActiveButton] = useState('');
   const [movieData, setMovieData] = useState([]);
-  const [posterUrl, setPosterUrl] = useState([]);
+  const {type} = useParams;
 
   //Get data from the  the {genreList} type Movie api request
   useEffect(() => {
     const fetchMovieGenresData = async () => {
-      const { genreList: type } = 'Movie';
+      type = "movie";
       try {
-        const getMovieGenreData = await genreList(type);
+        const getMovieGenreData = await genreList('Tv');
         setMovieGenresData(getMovieGenreData.genres);
         
       } catch (error) {
@@ -82,9 +83,9 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
     //Get data from the  the {genreList} type Tv api request
     useEffect(() => {
       const fetchSerieGenresData = async () => {
-        const { genreList: type } = 'Tv';
+        type = "Tv";
         try {
-          const getSerieGenreData = await genreList(type);
+          const getSerieGenreData = await genreList('movie');
           setSerieGenresData(getSerieGenreData.genres);
           
         } catch (error) {
@@ -114,27 +115,42 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
   }
 
 
-  //get movieData
+  //get movieDataPoster
+  
   useEffect(() => {
     const fetchMoviePoster = async () => {
-      const { search: keyword } = data;
-      data = activeGenreId;
-      try {    
-        const {results} = await search(keyword);
+      try {
+        const { results } = await search("movie", activeGenreId);
         setMovieData(results);
-        if (activeGenreId) {
-          setPosterUrl(data.poster_path);
-        }
-
       } catch (error) {
         console.error("Error fetching movie data:", error);
       }
-      
     };
-    
+
+    if (activeGenreId) {
       fetchMoviePoster();
-    
-  }, []);
+    }
+  }, [activeGenreId]);
+
+
+  // get tv poster
+
+
+  useEffect(() => {
+    const fetchTVPoster = async () => {
+      search("Tv");
+      try {
+        const { results } = await search(activeGenreId);
+        setMovieData(results);
+      } catch (error) {
+        console.error("Error fetching tv data:", error);
+      }
+    };
+
+    if (activeGenreId) {
+      fetchTVPoster();
+    }
+  }, [activeGenreId]);
   
 
   return (
@@ -170,19 +186,13 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
         ))}
       </GenreWrap>
 
-
-      {movieData.map(() => (
-        <>
-          <MoviePosterWrap>
-            <Link>
-              <MoviePoster
-                key={movieData.id}
-                //isactive={(props) => $bgUrl}
-              ></MoviePoster>
-            </Link>
-          </MoviePosterWrap>
-        </>
-      ))}
+       {movieData.map((movie) => (
+  <Link key={movie.id} to={`/movie/${movie.id}`}>
+    <MoviePoster
+      style={{ backgroundImage: `url(${IMG_URL}${movie.poster_path})` }}
+    />
+  </Link>
+))} 
 
       
     

@@ -1,11 +1,8 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { search } from "../api";
 import { Link } from "react-router-dom";
 import { routes } from "../routes";
-import { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
 
 
 const SearchWrap = styled.div`
@@ -23,43 +20,14 @@ h3{
     margin-left: 5px;
 }`;
 
-const SearchButton = styled.button``;
+const SearchButton = styled.button`
+all:unset;`;
 
 
 
 export const SearchHandler = () => {
 
-    const {
-        register,
-        handleSubmit,
-      } = useForm({
-        mode: "onSubmit",
-      });
-
-    const [searchBarVisible, setSearchBarVisible] = useState(false);
-    const [searchTerm, setSearchTerm] =useState('')
-
-    const handleSearchToggle = () => {
-        setSearchBarVisible(!searchBarVisible);
-        setSearchTerm('');
-    };
-
-    const handleInputChange = async () => {
-        const { search: keyword } = data;
-        const { search: type } = 'movie';
-    try {
-      const { results } = await search(keyword, type);
-      data = setSearchTerm(results);
-    } catch (error) {
-      console.log(error);
-    }
-
-    }
-    
-
-
-    return
-    
+    return (
     <SearchWrap>
         <SearchButton>
         <Link to={routes.search}>
@@ -68,6 +36,8 @@ export const SearchHandler = () => {
         </Link>
         </SearchButton>
 
-    </SearchWrap>
+      </SearchWrap >
+    )
+
 }
 

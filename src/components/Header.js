@@ -2,7 +2,9 @@ import styled from "styled-components";
 import { routes } from "../routes";
 import { Link } from "react-router-dom";
 import { Gnb } from "./Gnb";
-import {  SearchHandler } from "./SearchHandler";
+import { SearchHandler } from "./SearchHandler";
+import { useRef, useEffect} from "react";
+
 
 const Sheader = styled.header`
 width: 100vw;
@@ -30,34 +32,34 @@ font-family:'oswald';
 
 
 export const Header = () => {
+
     const headerRef = useRef();
- 
-   
 
-  
-    const scrollHandler = () => {
-      const pageY = window.scrollY;
-  
-      if (pageY > 300) {
-        headerRef.current.style.position = "fixed";
-        headerRef.current.style.backgroundColor = "rgba(0,0,0,0.7)";
-        headerRef.current.style.backdropFilter = "blur(3px)";
-      } else {
-        headerRef.current.style.position = "absolute";
-        headerRef.current.style.backgroundColor = "transparent";
-        headerRef.current.style.backdropFilter = "blur(0px)";
-      }
-      };
-  
-    
-    
-  
     useEffect(() => {
-      return window.addEventListener("scroll", scrollHandler);
-    });
-
+      const scrollHandler = () => {
+        const pageY = window.scrollY;
+    
+        if (pageY > 300) {
+          headerRef.current.style.position = "fixed";
+          headerRef.current.style.backgroundColor = "rgba(0,0,0,0.7)";
+          headerRef.current.style.backdropFilter = "blur(3px)";
+        } else {
+          headerRef.current.style.position = "absolute";
+          headerRef.current.style.backgroundColor = "transparent";
+          headerRef.current.style.backdropFilter = "blur(0px)";
+        }
+      };
+    
+      window.addEventListener("scroll", scrollHandler);
+    
+      // Clean up the event listener when the component unmounts
+      return () => {
+        window.removeEventListener("scroll", scrollHandler);
+      };
+    }, []); // Empty dependency array ensures the effect runs only once
+  
     return (
-        <Sheader>
+        <Sheader ref={headerRef}>
             <GnbWrap>
             <Logo>
                 <Link to={routes.home}> PCMovie</Link>
