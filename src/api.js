@@ -47,7 +47,7 @@ export const upcomingMovie = () => fetch(url("movie/upcoming"), options).then((r
 
 export const topratedMovie = () => fetch(url("movie/top_rated"), options).then((res) => res.json());
 
-export const genreMovieList = () => fetch(url("genre/movie/list"), options).then((res) => res.json());
+
 
  
 
@@ -87,3 +87,12 @@ export const search = (type, keyword) => {
     const searchUrl = baseUrl + `search/${type}?query=${keyword}&language=en-US`;
     return fetch(searchUrl, options).then((res) => res.json());
 }
+
+export const genreList = (type) => {
+    const genreUrl = baseUrl + `genre/${type}/list?language=en-US`;
+    fetch(genreUrl, options).then((res) => res.json());
+}
+
+    
+    
+   

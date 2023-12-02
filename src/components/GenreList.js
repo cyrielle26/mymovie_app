@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { useState, useEffect } from "react";
-import { genreMovieList } from "../api";
+import { genreList } from "../api";
 import { search } from "../api";
 import { IMG_URL } from "../constants";
 
@@ -67,7 +67,7 @@ export const GenreList = ({ titleName, subtitleName }) => {
   useEffect(() => {
     const fetchGenresData = async () => {
       try {
-        const getGenreData = await genreMovieList();
+        const getGenreData = await genreList();
         setGenresData(getGenreData.genres);
         
       } catch (error) {

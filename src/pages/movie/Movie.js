@@ -46,7 +46,7 @@ export const Movie = () => {
                                    
             </>
                         )}
-                        <GenreList titleName={"Don't know what movie to watch?"} subtitleName={"Movie genres"}/> 
+                        <GenreList titleName={"Don't know what movie to watch?"} subtitleName={"Movie genres"} type={"movie"}/> 
                     </div>
             )
         }
