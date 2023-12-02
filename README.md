@@ -13,8 +13,8 @@
 	  	  |____ npm i --save @fortawesome/react-fontawesome@latest
 - [x] fetch ____ npm install node-fetch@2 
 - [x] swiper ____ npm install swiper
-- [] chip npm i @nextui-org/react framer-motion
-- [] npm install -D tailwindcss
+- [x] chip npm i @nextui-org/react framer-motion
+- [x] npm install -D tailwindcss
 - [] react-spinner __npm i react-spinners (https://www.davidhu.io/react-spinners/)
 - [] npm install --save @emotion/react
 
@@ -23,19 +23,19 @@
 - [x] Components files set up
 - [x] api set up
 - [x] GlobalStyled set up
-- [] Loading
+- [x] Loading
 - [x] Header UI set up
-- [] GNB set up
+- [x] GNB set up
 - [] LNB set up
-- [] Footer UI set
-- [] HOME UI set up
+- [x] Footer UI set
+- [x] HOME UI set up
 - [] MOVIE UI set up
 - [] SERIES set up
 - [] Detail UI set up
 - [] search UI set up
 - [] header scroll event
 - [] scrollTop
-- [] helmet <HelmetProvider>
+- [x] helmet <HelmetProvider>
 - [] 404
 
 
@@ -74,24 +74,24 @@
 - [] Header.js
    - [x] jsx 
    - [x] css
-   - [] function
+   - [x] function
    - [] add scroll event 
    - [x] import Header to Router
 
-   - []Footer.js
-   - [] jsx
-   - [] css
-   - [] import Footer to Router
+   - [x]Footer.js
+   - [x] jsx
+   - [x] css
+   - [x] import Footer to Router
 
 - [] Home UI
     - [x] jsx
-    - [] css
-    - function
+    - [x] css
+    - [x]function
     - [x] api.js / nowPlaying const for TMDB api request to get nowplaying movie's category data = using fetch .then
       fetch(url("movie/now_playing"), options).then((res) => res.json())
     - [x] api request setting Home.js:
-        - [] useState : [nowPlayingData, setNowPlayingData]
-        - [] useEffect : async - try ->  const { results : nowResults } = await nowPlaying();   setNowPlayingData(nowResults)
+        - [x] useState : [nowPlayingData, setNowPlayingData]
+        - [x] useEffect : async - try ->  const { results : nowResults } = await nowPlaying();   setNowPlayingData(nowResults)
     - [x] MainBanner
         - import IGM_URL
         - [x] html body
@@ -102,16 +102,16 @@
         - [x] css
           - [] css change for screen size change @media screen and (max-widht --)
         - [x] import MainBanner.js to Home : + return - <MainBanner data={nowPlayingData[0]} />
-    - [] ShowMovies
-        - [] import IMG_URL +  { Link } from "react-router-dom"
+    - [x] ShowMovies
+        - [x] import IMG_URL +  { Link } from "react-router-dom"
         - [x]api.js /  popular / topRated /upComing const for TMDB api request to get those movie's category data
-        - [] html body
-        - [] css
-         - [] import { Swiper, SwiperSlide } from "swiper/react"; + import 'swiper/css';
-         - [] create const params to settle the swiper effect
+        - [x] html body
+        - [x] css
+         - [x] import { Swiper, SwiperSlide } from "swiper/react"; + import 'swiper/css';
+         - [x] create const params to settle the swiper effect
          - [] css change for screen size change @media screen and (max-widht --)
-        - [] jsx
-        - [] import ShowMovie.js to Home
+        - [x] jsx
+        - [x] import ShowMovie.js to Home
    
 - [] Details Ui
      - [] jsx
@@ -123,3 +123,13 @@
      - [] css
      - [] function
      - [] api.js / search const for TMDB api request to get those movie's category data
+- [] Movie 
+- [] jsx
+- [] css
+- []function :
+    -[] component GenreList
+- [] Serie
+  - [] jsx
+  - [] css
+  - []function :
+    -[] component GenreList

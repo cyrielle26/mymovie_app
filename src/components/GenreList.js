@@ -40,7 +40,7 @@ const GenreWrap = styled.ul`
   margin-bottom: 40px;
 `;
 
-// const MoviePosterWrapper = styled.div`
+// const MoviePosterWrap= styled.div`
 //   display: grid;
 //   grid-template-columns: repeat(5, 1fr);
 //   column-gap: 30px;
@@ -55,12 +55,15 @@ const GenreWrap = styled.ul`
 //   background: #f9f9f9;
 // `;
 
-export const GenreList = ({genreId, titleName, subtitleName}) => {
+export const GenreList = ({ titleName, subtitleName }) => {
+  
   const [genresData, setGenresData] = useState([]);
   const [activeGenreId, setActiveGenreId] = useState(false);
   const [activeButton, setActiveButton] = useState('');
+  const [movieData, setMovieData] = useState([]);
   const [posterUrl, setPosterUrl] = useState([]);
 
+  //Get data from the  the {genreMovieList} api request
   useEffect(() => {
     const fetchGenresData = async () => {
       try {
@@ -71,31 +74,12 @@ export const GenreList = ({genreId, titleName, subtitleName}) => {
         console.error("Error fetching genres data:", error);
       }
     };
-    console.log(genresData);
-    console.log(fetchGenresData);
     fetchGenresData();
   }, []);
 
 
 
-useEffect(() => {
-  const fetchMoviePoster = async () => {
-
-    try {
-      
-
-
-    } catch (error) {
-      console.error("Error fetching movie data:", error);
-    }
-  };
-
- 
-    fetchMoviePoster();
-  
-}, []);
-
-
+//on click event get the specific genreId when clicking on the button
   const onClickGetGenreHandler = async (genre) => {
     try {
   
@@ -107,9 +91,36 @@ useEffect(() => {
     console.log(activeGenreId);
   };
 
+  //on click event make the button change color when being clicked on
   const onClickColorHandler = () => {
     setActiveButton(!activeButton);
   }
+
+
+  //get movieData
+  useEffect(() => {
+    const fetchMoviePoster = async () => {
+      const { search: keyword } = data;
+      data = activeGenreId;
+      try {    
+        const {results} = await search(keyword);
+        setMovieData(results);
+        if (activeGenreId) {
+          setPosterUrl(data.poster_path);
+        }
+
+      } catch (error) {
+        console.error("Error fetching movie data:", error);
+      }
+      
+    };
+    
+  
+   
+      fetchMoviePoster();
+    
+  }, []);
+  
 
   return (
     <Container>
@@ -119,7 +130,7 @@ useEffect(() => {
         {genresData.map((genre) => (
           <Button
             key={genre.id}
-            to={`/genre/${genre.id}`} // Replace with the actual path you want the Link to navigate to
+            to={`search/movie?query=${genre.id}&language=en-US`} // Replace with the actual path you want the Link to navigate to
             isactive={activeGenreId === genre.id ? "true" : undefined} // Check if the genre ID is active + activate the prop style
             onClick={() => {
               onClickGetGenreHandler(genre);
@@ -130,8 +141,24 @@ useEffect(() => {
           </Button>
         ))}
       </GenreWrap>
+      {movieData.map(() => (
+        <>
+          <MoviePosterWrap>
+            <Link>
+              <MoviePoster
+                key={movieData.id}
+                //isactive={(props) => $bgUrl}
+              ></MoviePoster>
+            </Link>
+          </MoviePosterWrap>
+        </>
+      ))}
+
+      
+    
 
 
     </Container>
   );
 };
+ 

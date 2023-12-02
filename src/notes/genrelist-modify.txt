@@ -1,0 +1,277 @@
+import styled from '@emotion/styled'
+import { useState, useEffect } from "react";
+import { genreMovieList } from "../api";
+import { search } from "../api";
+import { IMG_URL } from "../constants";
+
+const Container = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 115px 55px;
+  width: 100%;
+  height: 80vh;
+`;
+
+const Title = styled.h3`
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 35px;
+`;
+
+const Button = styled.button`
+  all: unset;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 18px;
+  border-radius: 15px;
+  background-color: ${(props) => (props.isactive ? "rgba(249, 249, 249, 0.5)" : "#040714")};
+  opacity: 0.8;
+  border: 1px solid #f9f9f9;
+  padding: 5px;
+`;
+
+const SubTitle = styled.h3`
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 15px;
+`;
+const GenreWrap = styled.ul`
+  margin-bottom: 40px;
+`;
+
+// const MoviePosterWrapper = styled.div`
+//   display: grid;
+//   grid-template-columns: repeat(5, 1fr);
+//   column-gap: 30px;
+//   row-gap: 50px;
+// `;
+
+// const MoviePoster = styled.div`
+//   height: 250px;
+//   width: 185px;
+//   border-radius: 5px;
+//   box-shadow: 10px 10px 10px black;
+//   background: #f9f9f9;
+// `;
+
+export const GenreList = ({genreId, titleName, subtitleName}) => {
+  const [genresData, setGenresData] = useState([]);
+  const [activeGenreId, setActiveGenreId] = useState(false);
+  const [activeButton, setActiveButton] = useState('');
+  const [posterUrl, setPosterUrl] = useState([]);
+
+  useEffect(() => {
+    const fetchGenresData = async () => {
+      try {
+        const getGenreData = await genreMovieList();
+        setGenresData(getGenreData.genres);
+        
+      } catch (error) {
+        console.error("Error fetching genres data:", error);
+      }
+    };
+    console.log(genresData);
+    console.log(fetchGenresData);
+    fetchGenresData();
+  }, []);
+
+
+
+useEffect(() => {
+  const fetchMoviePoster = async () => {
+
+    try {
+      const
+
+
+    } catch (error) {
+      console.error("Error fetching movie data:", error);
+    }
+  };
+
+ 
+    fetchMoviePoster();
+  
+}, []);
+
+
+  const handleGenreClicked = async (genre) => {
+    try {
+  
+      setActiveGenreId(genre.id);
+
+    } catch (error) {
+      console.error("Error fetching movie data:", error);
+    }
+    console.log(activeGenreId);
+  };
+
+  const onClickColorHandler = () => {
+    setActiveButton(!activeButton);
+  }
+
+  return (
+    <Container>
+      <Title>{titleName}</Title>
+      <GenreWrap>
+        <SubTitle>{subtitleName}</SubTitle>
+        {genresData.map((genre) => (
+          <Button
+            key={genre.id}
+            to={`/genre/${genre.id}`} // Replace with the actual path you want the Link to navigate to
+            isactive={activeGenreId === genre.id ? "true" : undefined} // Check if the genre ID is active + activate the prop style
+            onClick={() => {
+              onClickGetGenreHandler(genre);
+              onClickColorHandler();
+            }}
+          >
+            {genre.name}
+          </Button>
+        ))}
+      </GenreWrap>
+
+
+    </Container>
+  );
+};
+ 
+
+
+ import styled from '@emotion/styled'
+import { useState, useEffect } from "react";
+import { genreMovieList } from "../api";
+import { search } from "../api";
+import { IMG_URL } from "../constants";
+
+const Container = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 115px 55px;
+  width: 100%;
+  height: 80vh;
+`;
+
+const Title = styled.h3`
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 35px;
+`;
+
+const Button = styled.button`
+  all: unset;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 18px;
+  border-radius: 15px;
+  background-color: ${(props) => (props.isactive ? "rgba(249, 249, 249, 0.5)" : "#040714")};
+  opacity: 0.8;
+  border: 1px solid #f9f9f9;
+  padding: 5px;
+`;
+
+const SubTitle = styled.h3`
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 15px;
+`;
+const GenreWrap = styled.ul`
+  margin-bottom: 40px;
+`;
+
+// const MoviePosterWrapper = styled.div`
+//   display: grid;
+//   grid-template-columns: repeat(5, 1fr);
+//   column-gap: 30px;
+//   row-gap: 50px;
+// `;
+
+// const MoviePoster = styled.div`
+//   height: 250px;
+//   width: 185px;
+//   border-radius: 5px;
+//   box-shadow: 10px 10px 10px black;
+//   background: #f9f9f9;
+// `;
+
+export const GenreList = ({genreId, titleName, subtitleName}) => {
+  const [genresData, setGenresData] = useState([]);
+  const [activeGenreId, setActiveGenreId] = useState(false);
+  const [activeButton, setActiveButton] = useState('');
+  const [posterUrl, setPosterUrl] = useState([]);
+
+  useEffect(() => {
+    const fetchGenresData = async () => {
+      try {
+        const getGenreData = await genreMovieList();
+        setGenresData(getGenreData.genres);
+        
+      } catch (error) {
+        console.error("Error fetching genres data:", error);
+      }
+    };
+    console.log(genresData);
+    console.log(fetchGenresData);
+    fetchGenresData();
+  }, []);
+
+
+
+useEffect(() => {
+  const fetchMoviePoster = async () => {
+
+    try {
+      
+
+    } catch (error) {
+      console.error("Error fetching movie data:", error);
+    }
+  };
+
+ 
+    fetchMoviePoster();
+  
+}, []);
+
+
+  const onClickGetGenreHandler = async (genre) => {
+    try {
+  
+      setActiveGenreId(genre.id);
+
+    } catch (error) {
+      console.error("Error fetching movie data:", error);
+    }
+    console.log(activeGenreId);
+  };
+
+  const onClickColorHandler = () => {
+    setActiveButton(!activeButton);
+  }
+
+  return (
+    <Container>
+      <Title>{titleName}</Title>
+      <GenreWrap>
+        <SubTitle>{subtitleName}</SubTitle>
+        {genresData.map((genre) => (
+          <Button
+            key={genre.id}
+            to={`/genre/${genre.id}`} // Replace with the actual path you want the Link to navigate to
+            isactive={activeGenreId === genre.id ? "true" : undefined} // Check if the genre ID is active + activate the prop style
+            onClick={() => {
+              onClickGetGenreHandler(genre);
+              onClickColorHandler();
+            }}
+          >
+            {genre.name}
+          </Button>
+        ))}
+      </GenreWrap>
+
+
+    </Container>
+  );
+};
+ 

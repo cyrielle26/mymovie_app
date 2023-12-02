@@ -49,6 +49,8 @@ export const topratedMovie = () => fetch(url("movie/top_rated"), options).then((
 
 export const genreMovieList = () => fetch(url("genre/movie/list"), options).then((res) => res.json());
 
+ 
+
 
 
 //**********************************************************************************************************************************************************

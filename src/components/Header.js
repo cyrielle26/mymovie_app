@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { routes } from "../routes";
 import { Link } from "react-router-dom";
 import { Gnb } from "./Gnb";
-import { SearchButton } from "./SearchButton";
+import {  SearchHandler } from "./SearchHandler";
 
 const Sheader = styled.header`
 width: 100vw;
@@ -38,7 +38,7 @@ export const Header = () => {
             </Logo>
                 <Gnb />
             </GnbWrap>
-            <SearchButton/>
+            <SearchHandler/>
         </Sheader>
     )
 }
