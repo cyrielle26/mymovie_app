@@ -46,7 +46,7 @@ export const Serie = () => {
                                    
             </>
                         )}
-                        <GenreList titleName={"Don't know what new serie to catch on?"} subtitleName={"Serie genres"}/> 
+                        <GenreList titleName={"Don't know what new serie to catch on?"} subtitleName={"Serie genres"} showSerieGenreList={true} showMovieGenreList={false} /> 
                     </div>
             )
         }

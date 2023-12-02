@@ -55,28 +55,45 @@ const GenreWrap = styled.ul`
 //   background: #f9f9f9;
 // `;
 
-export const GenreList = ({ titleName, subtitleName }) => {
+export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSerieGenreList }) => {
   
-  const [genresData, setGenresData] = useState([]);
+  const [moviegenresData, setMovieGenresData] = useState([]);
+  const [seriegenresData, setSerieGenresData] = useState([]);
   const [activeGenreId, setActiveGenreId] = useState(false);
   const [activeButton, setActiveButton] = useState('');
   const [movieData, setMovieData] = useState([]);
   const [posterUrl, setPosterUrl] = useState([]);
 
-  //Get data from the  the {genreMovieList} api request
+  //Get data from the  the {genreList} type Movie api request
   useEffect(() => {
-    const fetchGenresData = async () => {
+    const fetchMovieGenresData = async () => {
+      const { genreList: type } = 'Movie';
       try {
-        const getGenreData = await genreList();
-        setGenresData(getGenreData.genres);
+        const getMovieGenreData = await genreList(type);
+        setMovieGenresData(getMovieGenreData.genres);
         
       } catch (error) {
-        console.error("Error fetching genres data:", error);
+        console.error("Error fetching movie genres data:", error);
       }
     };
-    fetchGenresData();
+    fetchMovieGenresData();
   }, []);
 
+    //Get data from the  the {genreList} type Tv api request
+    useEffect(() => {
+      const fetchSerieGenresData = async () => {
+        const { genreList: type } = 'Tv';
+        try {
+          const getSerieGenreData = await genreList(type);
+          setSerieGenresData(getSerieGenreData.genres);
+          
+        } catch (error) {
+          console.error("Error fetching serie genres data:", error);
+        }
+      };
+      fetchSerieGenresData();
+    }, []);
+  
 
 
 //on click event get the specific genreId when clicking on the button
@@ -115,8 +132,6 @@ export const GenreList = ({ titleName, subtitleName }) => {
       
     };
     
-  
-   
       fetchMoviePoster();
     
   }, []);
@@ -127,10 +142,23 @@ export const GenreList = ({ titleName, subtitleName }) => {
       <Title>{titleName}</Title>
       <GenreWrap>
         <SubTitle>{subtitleName}</SubTitle>
-        {genresData.map((genre) => (
+        {showMovieGenreList && moviegenresData.map((genre) => (
           <Button
             key={genre.id}
-            to={`search/${type}?query=${genre.id}&language=en-US`} // Replace with the actual path you want the Link to navigate to
+            to={`search/Movie?query=${genre.id}&language=en-US`} // Replace with the actual path you want the Link to navigate to
+            isactive={activeGenreId === genre.id ? "true" : undefined} // Check if the genre ID is active + activate the prop style
+            onClick={() => {
+              onClickGetGenreHandler(genre);
+              onClickColorHandler();
+            }}
+          >
+            {genre.name}
+          </Button>
+        ))}
+        {showSerieGenreList && seriegenresData.map((genre) => (
+          <Button
+            key={genre.id}
+            to={`search/Tv?query=${genre.id}&language=en-US`} // Replace with the actual path you want the Link to navigate to
             isactive={activeGenreId === genre.id ? "true" : undefined} // Check if the genre ID is active + activate the prop style
             onClick={() => {
               onClickGetGenreHandler(genre);
@@ -141,6 +169,8 @@ export const GenreList = ({ titleName, subtitleName }) => {
           </Button>
         ))}
       </GenreWrap>
+
+
       {movieData.map(() => (
         <>
           <MoviePosterWrap>
