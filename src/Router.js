@@ -10,22 +10,20 @@ import { PageNotFound } from "./pages/PageNotFound";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 
-
-
 const Router = () => {
   return (
     <HashRouter>
       <Header />
       <Routes>
         <Route path={routes.home} element={<Home />} />
-        <Route path={routes.movies} element={<Movie/>} />
-        <Route path={routes.series} element={<Serie/>} />
+        <Route path={routes.movies} element={<Movie />} />
+        <Route path={routes.series} element={<Serie />} />
         <Route path={routes.movieDetail} element={<DetailMovie />} />
         <Route path={routes.serieDetail} element={<DetailSerie />} />
         <Route path={routes.search} element={<Search />} />
-        <Route path="*" element={<PageNotFound/>} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </HashRouter>
   );
 };
