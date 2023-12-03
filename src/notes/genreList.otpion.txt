@@ -1,0 +1,74 @@
+async function initListWithGenre(genres) {
+  const fetchMovies = genres.map(async (genre) => {
+    try {
+      const movieGenreData = await genreList('movie');
+      const movies = movieGenreData.results;
+      const titleGenre = genre.name;
+      const idGenre = genre.id;
+
+      return {
+        movies,
+        titleGenre,
+        idGenre
+      };
+    } catch (error) {
+      console.error("Error fetching movies with genre:", error);
+    }
+  });
+
+  const fetchSeries = genres.map(async (genre) => {
+    try {
+      const seriesGenreData = await genreList('tv');
+      const series = seriesGenreData.results;
+      const titleGenre = genre.name;
+      const idGenre = genre.id;
+
+      return {
+        series,
+        titleGenre,
+        idGenre
+      };
+    } catch (error) {
+      console.error("Error fetching series with genre:", error);
+    }
+  });
+
+  try {
+    const movieListsWithGenre = await Promise.all(fetchMovies);
+    const seriesListsWithGenre = await Promise.all(fetchSeries);
+
+    const genreTitles = movieListsWithGenre.map((genre) => genre.titleGenre);
+    const genreIds = movieListsWithGenre.map((genre) => genre.idGenre);
+    const movieListsWithGenreData = movieListsWithGenre.map((genre) => genre.movies);
+    const seriesListsWithGenreData = seriesListsWithGenre.map((genre) => genre.series);
+
+    this.setState({
+      movieListWithGenre: [...this.state.movieListWithGenre, ...movieListsWithGenreData.flat()],
+      seriesListWithGenre: [...this.state.seriesListWithGenre, ...seriesListsWithGenreData.flat()],
+      genreTitle: [...this.state.genreTitle, ...genreTitles],
+      genreId: [...this.state.genreId, ...genreIds]
+    });
+  } catch (error) {
+    console.error("Error fetching movies and series with genre:", error);
+  }
+}
+
+
+
+const onClickGetGenreHandler = async (genre) => {
+  try {
+    setActiveGenreId(genre.id);
+    const movieResponse = await genreList('movie');
+    const seriesResponse = await genreList('tv');
+    const movieResults = movieResponse.results || [];
+    const seriesResults = seriesResponse.results || [];
+
+    const movieResultsByGenre = movieResults.filter((movie) => movie.genre_ids.includes(genre.id));
+    const seriesResultsByGenre = seriesResults.filter((series) => series.genre_ids.includes(genre.id));
+
+    setMovieData(movieResultsByGenre);
+    setTvData(seriesResultsByGenre);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
