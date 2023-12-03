@@ -1,12 +1,12 @@
 
 320px · 480px · 600px · 768px · 900px · 1024px · 1200px.
 
-/* @media screen  and (max-width:1200px){
+@media screen  and (max-width:1200px){
 }
 
 @media screen  and (max-width:1024px){
   
-} */
+} 
 
 @media screen  and (max-width: 900px ){
   
