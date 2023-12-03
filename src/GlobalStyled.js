@@ -2,9 +2,9 @@ import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
 const MainColor = {
-    whiteColor: "#F9F9F9",
-    bgColor: "#040714",
-}
+  whiteColor: "#F9F9F9",
+  bgColor: "#040714"
+};
 
 export const GlobalStyled = createGlobalStyle`
 //add the reset package
@@ -30,5 +30,3 @@ a{
     color: ${MainColor.whiteColor};
 }
 `;
-  
-

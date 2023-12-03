@@ -1,0 +1,431 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/8FWC4tDWB1p006vwiubhai4a8iS.jpg",
+      "id": 1020969,
+      "title": "Teddy's Christmas",
+      "original_language": "no",
+      "original_title": "Teddybjørnens jul",
+      "overview": "Christmas peace falls over the small town, but at the Christmas market there's hectic activity. Mariann discovers a teddy bear at the top shelf. Is he alive? Mariann must get the teddy whatsoever. But Teddy wants to get to a rich family.",
+      "poster_path": "/jEf96axaZhZQEu9ORVtEujBTG9p.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        10751,
+        12,
+        14
+      ],
+      "popularity": 17.075,
+      "release_date": "2022-11-05",
+      "video": false,
+      "vote_average": 8.278,
+      "vote_count": 9
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/igwshQHV36aBkPyWp7En5P4Kn2V.jpg",
+      "id": 1071215,
+      "title": "Thanksgiving",
+      "original_language": "en",
+      "original_title": "Thanksgiving",
+      "overview": "After a Black Friday riot ends in tragedy, a mysterious Thanksgiving-inspired killer terrorizes Plymouth, Massachusetts - the birthplace of the holiday. Picking off residents one by one, what begins as random revenge killings are soon revealed to be part of a larger, sinister holiday plan.",
+      "poster_path": "/f5f3TEVst1nHHyqgn7Z3tlwnBIH.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        27,
+        53,
+        9648
+      ],
+      "popularity": 206.397,
+      "release_date": "2023-11-16",
+      "video": false,
+      "vote_average": 6.15,
+      "vote_count": 70
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/eoIQMUeJDOG41way1pb5TjiPFFf.jpg",
+      "id": 76617,
+      "title": "Texas Chainsaw 3D",
+      "original_language": "en",
+      "original_title": "Texas Chainsaw 3D",
+      "overview": "A young woman learns that she has inherited a Texas estate from her deceased grandmother. After embarking on a road trip with friends to uncover her roots, she finds she is the sole owner of a lavish, isolated Victorian mansion. But her newfound wealth comes at a price as she stumbles upon a horror that awaits her in the mansion’s dank cellars.",
+      "poster_path": "/dwIQ7WDCSiIcNdbferTcU7uI0KV.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        27,
+        53
+      ],
+      "popularity": 161.427,
+      "release_date": "2013-01-03",
+      "video": false,
+      "vote_average": 5.473,
+      "vote_count": 1552
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/dZbLqRjjiiNCpTYzhzL2NMvz4J0.jpg",
+      "id": 951491,
+      "title": "Saw X",
+      "original_language": "en",
+      "original_title": "Saw X",
+      "overview": "Between the events of 'Saw' and 'Saw II', a sick and desperate John Kramer travels to Mexico for a risky and experimental medical procedure in hopes of a miracle cure for his cancer, only to discover the entire operation is a scam to defraud the most vulnerable. Armed with a newfound purpose, the infamous serial killer returns to his work, turning the tables on the con artists in his signature visceral way through devious, deranged, and ingenious traps.",
+      "poster_path": "/aQPeznSu7XDTrrdCtT5eLiu52Yu.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        27,
+        53
+      ],
+      "popularity": 396.738,
+      "release_date": "2023-09-26",
+      "video": false,
+      "vote_average": 7.398,
+      "vote_count": 1190
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/t5zCBSB5xMDKcDqe91qahCOUYVV.jpg",
+      "id": 507089,
+      "title": "Five Nights at Freddy's",
+      "original_language": "en",
+      "original_title": "Five Nights at Freddy's",
+      "overview": "Recently fired and desperate for work, a troubled young man named Mike agrees to take a position as a night security guard at an abandoned theme restaurant: Freddy Fazbear's Pizzeria. But he soon discovers that nothing at Freddy's is what it seems.",
+      "poster_path": "/j9mH1pr3IahtraTWxVEMANmPSGR.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        27,
+        9648
+      ],
+      "popularity": 897.338,
+      "release_date": "2023-10-25",
+      "video": false,
+      "vote_average": 7.8,
+      "vote_count": 2628
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/kHlX3oqdD4VGaLpB8O78M25KfdS.jpg",
+      "id": 945729,
+      "title": "A Haunting in Venice",
+      "original_language": "en",
+      "original_title": "A Haunting in Venice",
+      "overview": "Celebrated sleuth Hercule Poirot, now retired and living in self-imposed exile in Venice, reluctantly attends a Halloween séance at a decaying, haunted palazzo. When one of the guests is murdered, the detective is thrust into a sinister world of shadows and secrets.",
+      "poster_path": "/1Xgjl22MkAZQUavvOeBqRehrvqO.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        9648,
+        53,
+        80
+      ],
+      "popularity": 134.186,
+      "release_date": "2023-09-13",
+      "video": false,
+      "vote_average": 6.763,
+      "vote_count": 1353
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/yYEOYzgqPB31mkSsuPdCvXH3zHv.jpg",
+      "id": 626332,
+      "title": "Flamin' Hot",
+      "original_language": "en",
+      "original_title": "Flamin' Hot",
+      "overview": "The inspiring true story of Richard Montañez, the Frito Lay janitor who channeled his Mexican American heritage and upbringing to turn the iconic Flamin’ Hot Cheetos into a snack that disrupted the food industry and became a global pop culture phenomenon.",
+      "poster_path": "/a7KyFMPXj0iY4EoLq1PIGU1WJPw.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        35,
+        18
+      ],
+      "popularity": 69.342,
+      "release_date": "2023-03-11",
+      "video": false,
+      "vote_average": 8.2,
+      "vote_count": 434
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/ao9UJkUs7hcIkqv02BquWxP49RR.jpg",
+      "id": 506554,
+      "title": "Judy & Punch",
+      "original_language": "en",
+      "original_title": "Judy & Punch",
+      "overview": "In the anarchic town of Seaside, nowhere near the sea, puppeteers Judy and Punch are trying to resurrect their marionette show. The show is a hit due to Judy's superior puppeteering but Punch's driving ambition and penchant for whisky lead to an inevitable tragedy that Judy must avenge.",
+      "poster_path": "/s0xonkc6Y0flANTQxxjjwQazFV1.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        18,
+        53,
+        35,
+        80
+      ],
+      "popularity": 7.804,
+      "release_date": "2019-11-21",
+      "video": false,
+      "vote_average": 6.198,
+      "vote_count": 63
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/k0VC5O8PrrJRqqDDbHDiDo8qAE0.jpg",
+      "id": 1034062,
+      "title": "Mortal Kombat Legends: Cage Match",
+      "original_language": "en",
+      "original_title": "Mortal Kombat Legends: Cage Match",
+      "overview": "In 1980s Hollywood, action star Johnny Cage is looking to become an A-list actor. But when his costar, Jennifer, goes missing from set, Johnny finds himself thrust into a world filled with shadows, danger, and deceit. As he embarks on a bloody journey, Johnny quickly discovers the City of Angels has more than a few devils in its midst.",
+      "poster_path": "/1eKWqTHp4OgKdx1QX1O9LxKHr1M.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        16,
+        28,
+        14
+      ],
+      "popularity": 151.38,
+      "release_date": "2023-10-17",
+      "video": false,
+      "vote_average": 7.008,
+      "vote_count": 66
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/4iYfKsWtKLsy18SOL9egydL91ok.jpg",
+      "id": 536554,
+      "title": "M3GAN",
+      "original_language": "en",
+      "original_title": "M3GAN",
+      "overview": "A brilliant toy company roboticist uses artificial intelligence to develop M3GAN, a life-like doll programmed to emotionally bond with her newly orphaned niece. But when the doll's programming works too well, she becomes overprotective of her new friend with terrifying results.",
+      "poster_path": "/d9nBoowhjiiYc4FBNtQkPY7c11H.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        878,
+        27
+      ],
+      "popularity": 113.074,
+      "release_date": "2022-12-28",
+      "video": false,
+      "vote_average": 7.172,
+      "vote_count": 3406
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/ifUfE79O1raUwbaQRIB7XnFz5ZC.jpg",
+      "id": 646385,
+      "title": "Scream",
+      "original_language": "en",
+      "original_title": "Scream",
+      "overview": "Twenty-five years after a streak of brutal murders shocked the quiet town of Woodsboro, a new killer has donned the Ghostface mask and begins targeting a group of teenagers to resurrect secrets from the town’s deadly past.",
+      "poster_path": "/971Kqs1q4nuSc9arn1QAuKYbfxy.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        27,
+        9648,
+        53
+      ],
+      "popularity": 83.489,
+      "release_date": "2022-01-12",
+      "video": false,
+      "vote_average": 6.698,
+      "vote_count": 2885
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/fBHfuMIp43iKo2mH1AbenNS9jIT.jpg",
+      "id": 467405,
+      "title": "Don't Sleep",
+      "original_language": "en",
+      "original_title": "Don't Sleep",
+      "overview": "After moving into a cottage together, two young lovers confront horrors of a forgotten childhood.",
+      "poster_path": "/jP0fjDDZaYGpuwD9as6tNn0ePPz.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        27,
+        53
+      ],
+      "popularity": 79.031,
+      "release_date": "2017-09-29",
+      "video": false,
+      "vote_average": 5.293,
+      "vote_count": 46
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/7Q6C4Z2Cr2ZrsXg6WcwWCwL27.jpg",
+      "id": 1157049,
+      "title": "Jigen Daisuke",
+      "original_language": "ja",
+      "original_title": "次元大介",
+      "overview": "The legendary gunman Daisuke Jigen comes to Japan to have his pistol examined.",
+      "poster_path": "/rBeAZ1YiwVQSdeiHCWzGtJhKvbV.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        28,
+        80,
+        18
+      ],
+      "popularity": 60.042,
+      "release_date": "2023-10-12",
+      "video": false,
+      "vote_average": 7.033,
+      "vote_count": 30
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/tZIO3n4E821jDhtHTk16dicERsY.jpg",
+      "id": 746041,
+      "title": "A Nashville Christmas Carol",
+      "original_language": "en",
+      "original_title": "A Nashville Christmas Carol",
+      "overview": "A workaholic television producer receives a visit from her recently deceased mentor, who warns her that her current path leads to a dark future.",
+      "poster_path": "/jsEfHhRudgiZfjdgaDUP80IYe9X.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        10770,
+        10749
+      ],
+      "popularity": 3.468,
+      "release_date": "2020-11-21",
+      "video": false,
+      "vote_average": 6.32,
+      "vote_count": 25
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/k2uukB0V2uwpuyggPbKYqCTO49M.jpg",
+      "id": 783952,
+      "title": "Nashville Homecoming",
+      "original_language": "en",
+      "original_title": "Nashville Homecoming",
+      "overview": "Filmed on the stage of the Grand Ole Opry and featuring more than 250 of gospel music's finest voices, Nashville Homecoming features more than 90 minutes of classic gospel favorites. This Homecoming gathering pays tribute to the legends who paved the way for gospel music as we know it and, most importantly, celebrates the Good News that remains forever relevant in our ever-changing culture.",
+      "poster_path": "/eoGTd9HKZIM471nrPeZkwXRaXpY.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        10402
+      ],
+      "popularity": 1.441,
+      "release_date": "2009-08-25",
+      "video": false,
+      "vote_average": 10,
+      "vote_count": 1
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/zhP2NiYyQEB8le8hNAKI05ZPr4D.jpg",
+      "id": 493639,
+      "title": "A Nashville Christmas",
+      "original_language": "en",
+      "original_title": "A Nashville Christmas",
+      "overview": "Join country musicians Emmylou Harris and Wynonna, as well as Pam Tillis, Lorrie Morgan, bluegrass singers Dailey & Vincent, and Ashley Cleveland for an evening of country Christmas music and holiday cheer.",
+      "poster_path": "/4uktBvSTK1fQXmGZfsOvTiJrsgS.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        10402
+      ],
+      "popularity": 2.425,
+      "release_date": "2017-12-07",
+      "video": false,
+      "vote_average": 10,
+      "vote_count": 1
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/gYwtthMzXiSS3uai41mkUm5RBBW.jpg",
+      "id": 283347,
+      "title": "Waylon Jennings - The Lost Outlaw Performance",
+      "original_language": "en",
+      "original_title": "Waylon Jennings - The Lost Outlaw Performance",
+      "overview": "On the evening of August 12, 1978, Waylon Jennings and The Waylons performed on the concert stage of the Grand Ole Opry in Nashville, Tennessee. The master recordings of this concert were never released and had been locked in the vaults of RCA Records, long forgotten since 1978. The songs embodied in this performance capture Waylon Jennings and his band at the height of the country music \"Outlaw\" period, ample evidence of the extraordinary and individualistic writing and singing talents of Waylon Jennings. Now presented for the first time in its entirety, exactly as it was recorded on August 12, 1978.",
+      "poster_path": "/w6BGXCcIVzH1IxSq09VTNcOWfz1.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        10402
+      ],
+      "popularity": 2.295,
+      "release_date": "1978-08-12",
+      "video": false,
+      "vote_average": 7.3,
+      "vote_count": 5
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/bffk4DDqj1353BOKz9TnD1v6nj6.jpg",
+      "id": 37917,
+      "title": "Honkytonk Man",
+      "original_language": "en",
+      "original_title": "Honkytonk Man",
+      "overview": "During the Great Depression, a young boy leaves his family's Oklahoma farm to travel with his country musician uncle who is trying out for the Grand Ole Opry.",
+      "poster_path": "/aRTtUYJrg53jhK8DiHu4SC31yfp.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        18,
+        10402
+      ],
+      "popularity": 12.807,
+      "release_date": "1982-12-15",
+      "video": false,
+      "vote_average": 6.4,
+      "vote_count": 152
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/Aa4UDJWVckGXwPZxY5qpRifQFYp.jpg",
+      "id": 16769,
+      "title": "Coal Miner's Daughter",
+      "original_language": "en",
+      "original_title": "Coal Miner's Daughter",
+      "overview": "Biography of Loretta Lynn, a country and western singer that came from poverty to fame.",
+      "poster_path": "/z3aGssTEed5SzX3Jh15DelGqnTa.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        10402,
+        18
+      ],
+      "popularity": 14.07,
+      "release_date": "1980-03-07",
+      "video": false,
+      "vote_average": 7.27,
+      "vote_count": 230
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/wD2kUCX1Bb6oeIb2uz7kbdfLP6k.jpg",
+      "id": 980078,
+      "title": "Winnie the Pooh: Blood and Honey",
+      "original_language": "en",
+      "original_title": "Winnie the Pooh: Blood and Honey",
+      "overview": "Christopher Robin is headed off to college and he has abandoned his old friends, Pooh and Piglet, which then leads to the duo embracing their inner monsters.",
+      "poster_path": "/ewF3IlGscc7FjgGEPcQvZsAsgAW.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        27,
+        53
+      ],
+      "popularity": 65.359,
+      "release_date": "2023-01-27",
+      "video": false,
+      "vote_average": 5.266,
+      "vote_count": 1047
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/iFASMaNivr6V6b3zqBMcYXMdI9i.jpg",
+      "id": 960139,
+      "title": "The House",
+      "original_language": "fr",
+      "original_title": "La Maison",
+      "overview": "Emma, a French novelist aged 27, decide to go to Berlin and join a brothel to uncover the prostitution world, the subject of her new book. Such as gonzo journalism, Emma become a prostitute and her experience, which was supposed to last a few weeks, will last two years. Was writing her book an excuse for Emma to live a shameful fantasy?",
+      "poster_path": "/zz6h2hfQ692jeeEkzfgFceyd50Y.jpg",
+      "media_type": "movie",
+      "genre_ids": [
+        18
+      ],
+      "popularity": 45.915,
+      "release_date": "2022-11-16",
+      "video": false,
+      "vote_average": 6.294,
+      "vote_count": 51
+    }
+  ],
+  "total_pages": 2,
+  "total_results": 40
+}
