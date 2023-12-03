@@ -96,8 +96,8 @@ export const genreList = (type) => {
     return fetch(genreUrl, options).then((res) => res.json());
 }
 
-export const discover = (type) => {
-    const discoverUrl = baseUrl + `discover/${type}?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
+export const discover = (type, genreId) => {
+    const discoverUrl = baseUrl + `discover/${type}?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc${genreId ? `&with_genres=${genreId}` : ''}`;
     return fetch(discoverUrl, options).then((res) => res.json());
 }
 

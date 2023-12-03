@@ -6,29 +6,48 @@ import { Loading } from "../../components/Loading";
 import { IMG_URL } from "../../constants";
 import { scrollTop } from "../../lib/scrollTop";
 
+
+
 const Container = styled.div`
-padding: 100px 150px 100px;
+width: 60%;
+margin: 100px 20% 0px 20%;
 display: flex;
 justify-content:space-between;
+flex-direction:column;
+
+@media screen  and (max-width:950px){
+
+}
 @media screen  and (max-width:815px){
-    padding: 100px;
+   
 }
 @media screen and (max-width:450px){
-    flex-direction: column;
-    padding: 100px 5%;
+ 
 }
+`;
+const BgWrap = styled.div`
+width: 100%;
+height: 550px;
 `;
 
 const Bg = styled.div`
-width:40%;
-height: 700px;
+border-radius: 5px 5px 0px 0px;
+width: 100%;
+height: 75%;
 background-color:lightgray;
-background: url(${IMG_URL}/w1280/${(props) => props.$bgUrl}) no-repeat center / cover;
+background: url(${IMG_URL}/original/${(props) => props.$bgUrl}) no-repeat center / cover;
+/* @media screen  and (max-width:1280px){
+    height: 70%;
+}
+@media screen  and (max-width:1080px){
+    height: 50%;
+} */
+
 @media screen  and (max-width:950px){
-    height: 680px;
+    height: 50%;
 }
 @media screen  and (max-width:815px){
-    width: 65%;
+    
 }
 @media screen  and (max-width: 450px){
     width: 100%;
@@ -37,9 +56,9 @@ background: url(${IMG_URL}/w1280/${(props) => props.$bgUrl}) no-repeat center / 
 `;
 
 const InfoWrap = styled.div`
-width: 55%;
+width: 100%;
 font-size: 20px;
-padding-top: 50px;
+padding-top: 20px;
 @media screen  and (max-width:950px){
     width: 60%;
     font-size: 16px;
@@ -109,6 +128,8 @@ const EpisodeList = styled.div``;
 
 
 export const DetailSerie = (genres) => {
+
+
     const { id } = useParams();
     const [detailData, setDetailData] = useState();
     const [isLoading, setIsLoading] = useState(true);
@@ -137,8 +158,11 @@ export const DetailSerie = (genres) => {
             {isLoading ? (
                 <Loading />
             ) : (
-                <Container>
-                    <Bg $bgUrl={detailData.poster_path} />
+                    <Container>
+                        <BgWrap>
+                            <Bg $bgUrl={detailData.backdrop_path} />
+                        </BgWrap>
+                    
                     <InfoWrap>
                         <SerieTitle>{detailData.name}</SerieTitle>
                         <Season>Season {detailData.season_number}</Season>

@@ -9,7 +9,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { movieRecommendations } from "../../api";
 import { useParams } from "react-router-dom";
-import { Loading } from "../../components/Loading";
 
 const Container = styled.div`
 width: 100vw;
@@ -64,21 +63,9 @@ const Bg = styled.div`
   height: 300px;
   background: url(${IMG_URL}/w500/${(props) => props.$bgUrl}) no-repeat center /
     cover;
-    background-color: #f9f9f9;
-    box-shadow: 10px 10px 10px black;
 `;
 
-const MovieTitle = styled.div`
-margin-top: 25px;
-font-size: 18px;`;
-const Type = styled.div`
-margin-top: 25px;
-font-size: 18px;`;
-
-const NoResults = styled.h3`
-font-size: 20px;
-padding:  0 40%;
-`;
+const MovieTitle = styled.div``;
 
 const SuggestionContainer = styled.div``;
 const SuggestionTitle= styled.div``;
@@ -123,30 +110,17 @@ export const Search = () => {
 
   
   const [term, setTerm] = useState();
-  const [isLoading, setIsLoading] = useState(true);
   const [movieResults, setMovieResults] = useState();
   const [tvResults, setTvResults] = useState();
   const [suggestionData, setSuggestionData] = useState();
   const [searchResults, setSearchResults] = useState([]);
-  const { id, type } = useParams();
+  const { id } = useParams();
 
   scrollTop();
 
 
-  useEffect(() => {
-    (async () => {
-      try {
-           
-        setIsLoading(false);
-            
-      } catch (error) {
-        console.error("Error loading :" + error);
-        /* console.log(isLoading); */
-          
-      }
-    })()
-  }, []);
 
+//search Handler
   const searchHandler = async (data) => {
     const { search: keyword } = data;
     
@@ -155,71 +129,108 @@ export const Search = () => {
       setMovieResults(movieResults);
       const { results: tvResults } = await search('tv', keyword);
       setTvResults(tvResults);
-      setTerm(tvResults && movieResults);
-     
+
+      setTerm(keyword);
+
     } catch (error) {
       console.log(error);
     }
 
   };
 
+    // Function to handle term change
+    const handleTermChange = (event) => {
+      setTerm(event.target.value);
+  };
+  
+
+// Fetch movie recommendations based on the latest search result
+useEffect(() => {
+  const fetchRecommendations = async () => {
+    try {
+      if (movieResults && movieResults.length > 0) {
+        // Get the latest movie result
+        const latestMovieResult = movieResults[movieResults.length - 1];
+        const data = await movieRecommendations(latestMovieResult.id);
+        setSuggestionData(data);
+      } else {
+        // Clear the suggestion data if there are no search results
+        setSuggestionData(null);
+      }
+    } catch (error) {
+      console.error("Error fetching recommendations:", error);
+    }
+  };
+
+  // Call the fetchRecommendations function
+  fetchRecommendations();
+}, [movieResults]);
+
+
+
+  
+
+
 
 
   return (
-    <>
-      <Container>
-        <InputWrap>
-          <Title>Anything in mind?</Title>
-          <Form onSubmit={handleSubmit(searchHandler)}>
-            <Input
-              {...register("search", {
-                required: "Please enter a search term",
-              })}
-              type="text"
-              placeholder="Movie, show..."
-            />
-          </Form>
-        </InputWrap>
-  
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <MainLayout>
-            {term ? (
-              term.length > 0 ? (
-                <>
-                  <SearchResultsTitle>Search Results</SearchResultsTitle>
-                  <ConWrap>
-                    {term.map((data) => (
-                      <Con key={data.id}>
-                        <Bg
-                          $bgUrl={
-                            data.backdrop_path
-                              ? `${IMG_URL}/w500/${data.backdrop_path}`
-                              : data.poster_path
-                                ? `${IMG_URL}/w500/${data.poster_path}`
-                                : 'https://congtygiaphat104.com/template/Default/img/no.png'
-                          }
-                        />
+    <Container>
+      <InputWrap>
+      <Title>Anything in mind?</Title>
+      <Form onSubmit={handleSubmit(searchHandler)}  onChange={handleTermChange}>
+        <Input
+          {...register("search", {
+            required: "researched content here.",
+          })}
+          type="text"
+            placeholder="Movie, show..."
+        />
+      </Form>
+      </InputWrap>
+
+      <MainLayout>
+        {Array.isArray(term) && term.length > 0 && (
+          <>
+          <SearchResultsTitle>Search Results</SearchResultsTitle>
+          <ConWrap>
+            {term.map((data) => (
+            
+              <Con key={data.id}>
+                <Bg   $bgUrl={
+    data.backdrop_path
+      ? `${IMG_URL}/w500/${data.backdrop_path}`
+      : 'https://congtygiaphat104.com/template/Default/img/no.png'
+  }/>
+                
+                
+                <MovieTitle>{data.title}</MovieTitle>
+              </Con>
+              ))}
+              </ConWrap>
+          
+
+<SuggestionContainer>
+<SuggestionTitle>You may also like...</SuggestionTitle>
+        <Swiper  {...params} >
+            {suggestionData.results.map((data) => (
+                <SwiperSlide key={data.id}>
+                    {/* <Link to={`/movie/${data.id}`}> */}
+                        <CoverBg $bgUrl={data.poster_path} />
                         <MovieTitle>{data.title}</MovieTitle>
-                        <Type>{type}</Type>
-                      </Con>
-                    ))}
-                  </ConWrap>
-                </>
-              ) : (
-                <NoResults>No results found.</NoResults>
-              )
-            ) : (
-              <p></p>
-            )}
-          </MainLayout>
+                        <SerieTitle>{data.name}</SerieTitle>
+                       
+                    {/* </Link> */}
+                </SwiperSlide>
+            ))}
+        </Swiper>             
+</SuggestionContainer>
+           
+
+            </>
         )}
-      </Container>
-    </>
+
+    
+      </MainLayout>
+    </Container>
   );
-  
-
-
-}  
-
+};

@@ -11,10 +11,11 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 
 
+
 const Router = () => {
   return (
     <HashRouter>
-      <Header/>
+      <Header />
       <Routes>
         <Route path={routes.home} element={<Home />} />
         <Route path={routes.movies} element={<Movie/>} />

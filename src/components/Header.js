@@ -16,7 +16,7 @@ justify-content: space-between;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 8;
 `;
 
 const GnbWrap = styled.div`

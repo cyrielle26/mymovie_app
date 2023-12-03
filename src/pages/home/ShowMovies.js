@@ -54,15 +54,15 @@ font-size: 16px;
 
 const params = {
     slidesPerView: 5.5,
-    spaceBetween : 20,
+    spaceBetween: 20,
     breakpoints: {
         // when window width is >=  1024px
         1024: {
             slidesPerView: 5.5,
             spaceBetween: 20
         },
-         // when window width is >= 640px
-         640: {
+        // when window width is >= 640px
+        640: {
             slidesPerView: 4.3,
             spaceBetween: 15
         },
@@ -70,22 +70,28 @@ const params = {
         320: {
             slidesPerView: 3.2,
             spaceBetween: 10
-          },
+        },
        
     }
 }
+  
 
-export const ShowMovies = ({ movieData, titleName,type }) => {
+
+export const ShowMovies = ({ movieData, titleName, type}) => {
+
+  
+
     return (
         <Container>
         <Title>{titleName}</Title>
         <Swiper  {...params} >
             {movieData.map((data) => (
                 <SwiperSlide key={data.id}>
-                    <Link to={`/${type}/${data.id}`}>
+                    <Link to={`/${type}/${data.id}`} >
                         <CoverBg $bgUrl={data.poster_path} />
                         <MovieTitle>{data.title}</MovieTitle>
                         <SerieTitle>{data.name}</SerieTitle>
+                       
                     </Link>
                 </SwiperSlide>
             ))}

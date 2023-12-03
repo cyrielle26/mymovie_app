@@ -74,9 +74,8 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
   const [activeButton, setActiveButton] = useState('');
   const [movieData, setMovieData] = useState();
   const [tvData, setTvData] = useState();
-  let { type } = useParams();
-  // const tvType = useRef(type = 'tv');
-  // const movieType = useRef(type = 'movie');
+  const [discovergenreId, setDiscovergenreId] = useState([]);
+ 
 
   //Get data from the  the {genreList} type Movie api request
   useEffect(() => {
@@ -85,7 +84,7 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
       try {
         const getMovieGenreData = await genreList('movie');
         setMovieGenresData(getMovieGenreData.genres);
-        console.log(getMovieGenreData); 
+        
         
       } catch (error) {
         console.error("Error fetching movie genres data:", error);
@@ -102,7 +101,7 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
 
           const getSerieGenreData = await genreList('tv');
           setSerieGenresData(getSerieGenreData.genres);
-          console.log(getSerieGenreData); 
+          
           
         } catch (error) {
           console.error("Error fetching serie genres data:", error);
@@ -112,24 +111,38 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
     }, []);
   
 
-  // on click event get the specific genreId when clicking on the button
-  const onClickGetGenreHandler = async (genre) => {
-    try {
-      setActiveGenreId(genre);
-      const response = await genreList(type); // Updated to pass genre type
-      const results = response.results || [];
-
-      if (type === 'movie') {
-        setMovieData(results);
-        setTvData([]);
-      } else {
-        setTvData(results);
-        setMovieData([]);
+  // on click event get the specific genreId when clicking on the button (tv)
+    const onClickGetTvGenreHandler = async (genre) => {
+      try {
+        setActiveGenreId(genre);
+        const results = await genreList('tv');
+        const getActiveGenre = results.genre;
+        setTvData(getActiveGenre);
+        console.log(getActiveGenre);
+       
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+    };
+
+
+  
+  // on click event get the specific genreId when clicking on the button (movie)
+  
+    const onClickGetMovieGenreHandler = async (genre) => {
+      try {
+        setActiveGenreId(genre);
+        const response = await genreList('movie'); 
+        const results = response.results || [];
+        setMovieData(results);
+       
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+ 
+
+
   
 
   //on click event make the button change color when being clicked on
@@ -143,9 +156,12 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
   useEffect(() => {
     const fetchMoviePoster = async () => {
       try {
-        const { results } = await discover('movie');
+        const {results } = await discover('movie');
         setMovieData(results);
-        console.log(results);
+        const getDiscoverGenreId = results.length > 0 ? results[0].genre_ids : [];
+        setDiscovergenreId(getDiscoverGenreId);
+
+        console.log(movieData);
       } catch (error) {
         console.error("Error fetching movie data:", error);
       }
@@ -154,7 +170,7 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
     if (activeGenreId) {
       fetchMoviePoster();
     }
-  }, [activeGenreId]);
+  }, []);
 
 
   // get tv poster
@@ -165,7 +181,9 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
       try {
         const { results } = await discover('tv');
         setTvData(results);
-        console.log(results);
+        const getDiscoverGenreId = results.length > 0 ? results[0].genre_ids : [];
+        setDiscovergenreId(getDiscoverGenreId);
+
       } catch (error) {
         console.error("Error fetching tv data:", error);
       }
@@ -174,7 +192,7 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
     if (activeGenreId) {
       fetchTVPoster();
     }
-  }, [activeGenreId]);
+  }, []);
   
 
   return (
@@ -189,7 +207,7 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
             to={`genre/movie?query=${genre.id}&language=en-US`} // Replace with the actual path you want the Link to navigate to
             isactive={activeGenreId === genre.id ? "true" : undefined} // Check if the genre ID is active + activate the prop style
             onClick={() => {
-              onClickGetGenreHandler(genre.id);
+              onClickGetMovieGenreHandler(genre.id);
               onClickColorHandler(); 
             }}
           >
@@ -203,7 +221,7 @@ export const GenreList = ({ titleName, subtitleName, showMovieGenreList, showSer
             to={`genre/tv?query=${genre.id}&language=en-US`} // Replace with the actual path you want the Link to navigate to
             isactive={activeGenreId === genre.id ? "true" : undefined} // Check if the genre ID is active + activate the prop style
             onClick={() => {
-              onClickGetGenreHandler(genre.id);
+              onClickGetTvGenreHandler(genre.id);
               onClickColorHandler();
             }}
           >
