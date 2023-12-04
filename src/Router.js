@@ -9,11 +9,13 @@ import { Search } from "./pages/search/Search";
 import { PageNotFound } from "./pages/PageNotFound";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
+import { MobileHomeBand } from "./components/MobileHomeBand";
 
 const Router = () => {
   return (
     <HashRouter>
       <Header />
+      <MobileHomeBand />
       <Routes>
         <Route path={routes.home} element={<Home />} />
         <Route path={routes.movies} element={<Movie />} />

@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { routes } from "../routes";
-import { Link } from "react-router-dom";
 import { Gnb } from "./Gnb";
-import { SearchHandler } from "./SearchHandler";
 import { useRef, useEffect } from "react";
+import { MobileGnb } from "./MobileGnb";
+import { SearchHandler } from "./SearchHandler";
 
 const Sheader = styled.header`
   width: 100vw;
@@ -21,13 +20,25 @@ const Sheader = styled.header`
   top: 0;
   left: 0;
   z-index: 8;
+  @media screen and (max-width: 480px) {
+    height: 15%;
+    padding: 20px 10%;
+  }
 `;
 
 const GnbWrap = styled.div`
   display: flex;
   justify-content: space-around;
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
 `;
-
+const MobileGnbWrap = styled.div`
+  display: none;
+  @media screen and (max-width: 480px) {
+    display: flex;
+  }
+`;
 export const Header = () => {
   const headerRef = useRef();
 
@@ -59,6 +70,9 @@ export const Header = () => {
       <GnbWrap>
         <Gnb />
       </GnbWrap>
+      <MobileGnbWrap>
+        <MobileGnb />
+      </MobileGnbWrap>
       <SearchHandler />
     </Sheader>
   );

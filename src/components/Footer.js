@@ -23,10 +23,8 @@ const Container = styled.footer`
   @media screen and (max-width: 600px) {
   }
 
-  @media screen and (max-width: 480px) {
-  }
-
-  @media screen and (max-width: 320px) and (min-width: 300px) {
+  @media screen and (max-width: 480px) and (min-width: 300px) {
+    display: none;
   }
 `;
 

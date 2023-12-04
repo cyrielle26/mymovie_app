@@ -165,8 +165,6 @@ const Release = styled.div`
   }
 `;
 
-const Runtime = styled.div``;
-
 const Description = styled.p`
   max-width: 60%;
   width: 100%;

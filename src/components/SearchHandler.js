@@ -18,6 +18,11 @@ const SearchWrap = styled.div`
   h3 {
     margin-left: 5px;
   }
+  @media screen and (max-width: 480px) {
+    font-size: 18px;
+  }
+  @media screen and (min-width: 300px) {
+  }
 `;
 
 const SearchButton = styled.button`

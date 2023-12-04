@@ -101,7 +101,7 @@ const TitleWrap = styled.div`
   }
 `;
 
-const SerieTitle = styled.h3`
+const MovieTitle = styled.h3`
   font-size: 30px;
   font-weight: 900;
   margin-bottom: 30px;
@@ -179,7 +179,7 @@ const Description = styled.p`
     margin-top: 20px;
   }
 `;
-const Keywords = styled.div``;
+// const Keywords = styled.div``;
 
 export const DetailMovie = () => {
   const { id } = useParams();
@@ -207,20 +207,23 @@ export const DetailMovie = () => {
         <Loading />
       ) : (
         <Container>
-          <Bg $bgUrl={detailData.poster_path} />
-
+          <BgWrap>
+            <Bg $bgUrl={detailData.backdrop_path} />
+          </BgWrap>
           <InfoWrap>
-            <MovieTitle>{detailData.title}</MovieTitle>
-            <Rating>Rated: {Math.round(detailData.vote_average)}</Rating>
+            <TitleWrap>
+              <MovieTitle>{detailData.title}</MovieTitle>
+              <Rating>Rated: {Math.round(detailData.vote_average)}</Rating>
+            </TitleWrap>
             <Genre>
               {" "}
               {detailData.genres.map((genres) => (
                 <li key={genres.id}>{genres.name}</li>
               ))}
             </Genre>
-            {/* <Keywords>This movie is: {detailData.keyword.map((keyword) => <li key={keyword.id}>{keywords.name}</li>)}</Keywords> */}
+            {/* <Keywords>This movie is: {detailData.keyword.map((keyword) => <li key={keyword.id}>{keywords.name}</li>)}</Keywords>  */}
             <Release>{detailData.release_date}</Release>
-            <Runtime>Runtime: {detailData.runtime}</Runtime>
+            <Runtime>Runtime:{detailData.runtime}min</Runtime>
 
             <Description>{detailData.overview}</Description>
           </InfoWrap>
