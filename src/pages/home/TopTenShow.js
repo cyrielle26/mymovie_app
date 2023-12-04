@@ -14,7 +14,7 @@ const Title = styled.h3`
   margin-bottom: 50px;
   @media screen and (max-width: 450px) {
     font-size: 24px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     font-size: 24px;
   }
 `;
@@ -55,9 +55,8 @@ const CoverBg = styled.div`
     margin-bottom: 15px;
   }
   @media screen and (max-width: 450px) {
-    height: 200px;
+    height: 170px;
     width: 145px;
-    margin-bottom: 15px;
   }
 `;
 

@@ -14,6 +14,22 @@
 - [] update the search button 반응형
 - [] find a solution to open a window Link to Detail when clicking on a image :
   GlobalWindowOpener? -REACT DOM hook(useLocation, useHistory,)
+- [] search result Link : if movie type ='movie' if serie type='tv';
+
+-- [] 장르 목록 발견 API 요청 :
+--> 버튼을 클릭 할 때 포스터를 가져옵니다:
+장르 버튼을 클릭 할 때 장르 ID를 얻었지만->이 Id 결과를 다른 API 요청 이름 발견에 연결하여 장르 ID와 관련된 포스터 경로 데이터를 가져 오는 방법을 모릅니다:
+discoverTv with_genres / discoverMovie with_genres로 시도해야 하나요?
+
+- [] DetailLayout -> 코드 최적화 CSS 파일 생성? REACT에서 CSS 파일 가져오기
+- [] 추천 영화 가져오기 -> API 요청 -> 검색
+  영화 검색과 관련된 포스터\_경로 데이터를 가져 오기 위해 검색 ID 결과를 추천 api 요청에 연결하는 방법을 모릅니다:
+  검색 결과 첫 번째 영화 ID를 가져와서 이 ID 영화 ID를 추천 API 요청에 사용해야 합니다.
+- [] 입력창 검색 표시/비표시 토글 + 폼에서 데이터 가져오기
+- [] 검색 버튼 반응형 업데이트
+- [] 이미지를 클릭할 때 상세 정보로 연결되는 창을 여는 솔루션 찾기 :
+  GlobalWindowOpener? -REACT DOM 훅(useLocation, useHistory,)
+- [] 검색 결과 링크 : 만약 영화 유형 ='영화';만약 시리즈 유형 ='TV';만약 시리즈 유형 ='TV';
 
 ## installation
 

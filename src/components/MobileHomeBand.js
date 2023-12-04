@@ -30,6 +30,8 @@ const BottomMobileNav = styled.div`
   }
   @media screen and (max-width: 480px) and (min-width: 300px) {
     display: flex;
+    justify-content: center;
+    align-self: center;
   }
 `;
 

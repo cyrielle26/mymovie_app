@@ -22,6 +22,13 @@ const NavWrap = styled.ul`
     width: 400px;
     font-size: 18px;
   }
+  @media screen and (max-width: 600px) {
+    width: 300px;
+  }
+  @media screen and (max-width: 500px) {
+    width: 280px;
+    font-size: 16px;
+  }
   @media screen and (max-width: 480px) {
     display: none;
   }

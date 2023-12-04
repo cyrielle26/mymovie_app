@@ -20,8 +20,10 @@ const SearchWrap = styled.div`
   }
   @media screen and (max-width: 480px) {
     font-size: 18px;
+    margin-bottom: 34px;
   }
-  @media screen and (min-width: 300px) {
+  @media screen and (min-width: 450px) {
+    font-size: 16px;
   }
 `;
 

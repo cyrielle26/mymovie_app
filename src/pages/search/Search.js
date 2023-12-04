@@ -5,9 +5,9 @@ import { MainLayout } from "../../components/MainLayout";
 import styled from "styled-components";
 import { IMG_URL } from "../../constants";
 import { scrollTop } from "../../lib/scrollTop";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { movieRecommendations } from "../../api";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/css";
+// import { movieRecommendations } from "../../api";
 import { useParams } from "react-router-dom";
 import { Loading } from "../../components/Loading";
 

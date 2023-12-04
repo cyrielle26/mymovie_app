@@ -36,6 +36,10 @@ const TopMobileNav = styled.ul`
   @media screen and (max-width: 480px) {
     display: none;
   }
+  @media screen and (min-width: 450px) {
+    font-size: 16px;
+  }
+
   @media screen and (min-width: 300px) {
     display: flex;
   }
