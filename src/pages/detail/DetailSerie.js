@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { serieDetail } from "../../api";
 import { Loading } from "../../components/Loading";
 import { IMG_URL } from "../../constants";
-import { scrollTop } from "../../lib/scrollTop";
+import { ScrollTop } from "../../lib/ScrollTop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
 
@@ -200,7 +200,7 @@ export const DetailSerie = (genres) => {
   const { id } = useParams();
   const [detailData, setDetailData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  scrollTop();
+  ScrollTop();
 
   useEffect(() => {
     (async () => {

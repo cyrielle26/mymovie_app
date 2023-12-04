@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { movieDetail } from "../../api";
 import { Loading } from "../../components/Loading";
 import { IMG_URL } from "../../constants";
-import { scrollTop } from "../../lib/scrollTop";
+import { ScrollTop } from "../../lib/ScrollTop";
 
 const Container = styled.div`
   position: relative;
@@ -179,13 +179,13 @@ const Description = styled.p`
     margin-top: 20px;
   }
 `;
-// const Keywords = styled.div``;
+const Keywords = styled.div``;
 
 export const DetailMovie = () => {
   const { id } = useParams();
   const [detailData, setDetailData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  scrollTop();
+  ScrollTop();
 
   useEffect(() => {
     (async () => {

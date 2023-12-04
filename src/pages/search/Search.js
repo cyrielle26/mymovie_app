@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { MainLayout } from "../../components/MainLayout";
 import styled from "styled-components";
 import { IMG_URL } from "../../constants";
-import { scrollTop } from "../../lib/scrollTop";
+import { ScrollTop } from "../../lib/ScrollTop";
 // import { Swiper, SwiperSlide } from "swiper/react";
 // import "swiper/css";
 // import { movieRecommendations } from "../../api";
@@ -141,7 +141,7 @@ export const Search = () => {
   const [searchResults, setSearchResults] = useState([]);
   const { id, type } = useParams();
 
-  scrollTop();
+  ScrollTop();
 
   useEffect(() => {
     (async () => {

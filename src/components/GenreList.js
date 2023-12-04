@@ -9,7 +9,7 @@ const Container = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  padding: 115px 55px;
+  padding: 135px 55px;
   width: 100%;
   height: 80vh;
 `;
@@ -17,14 +17,15 @@ const Container = styled.div`
 const Title = styled.h3`
   font-size: 22px;
   font-weight: 800;
-  margin-bottom: 35px;
+  margin-bottom: 55px;
 `;
 
 const Button = styled.button`
   all: unset;
+  text-align: center;
   cursor: pointer;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 14px;
   border-radius: 15px;
   background-color: ${(props) =>
     props.isactive ? "rgba(249, 249, 249, 0.5)" : "#040714"};
@@ -34,12 +35,19 @@ const Button = styled.button`
 `;
 
 const SubTitle = styled.h3`
+  margin-top: 30px;
   font-size: 18px;
   font-weight: 500;
-  margin-bottom: 15px;
 `;
 const GenreWrap = styled.ul`
+  margin-top: 45px;
   margin-bottom: 40px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
 `;
 
 const PosterWrap = styled.div`
@@ -185,9 +193,8 @@ export const GenreList = ({
   return (
     <Container>
       <Title>{titleName}</Title>
+      <SubTitle>{subtitleName}</SubTitle>
       <GenreWrap>
-        <SubTitle>{subtitleName}</SubTitle>
-
         {showMovieGenreList &&
           moviegenresData.map((genre) => (
             <Button

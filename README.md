@@ -15,6 +15,7 @@
 - [] find a solution to open a window Link to Detail when clicking on a image :
   GlobalWindowOpener? -REACT DOM hook(useLocation, useHistory,)
 - [] search result Link : if movie type ='movie' if serie type='tv';
+- [] scrolltop ? ScrollTop
 
 -- [] 장르 목록 발견 API 요청 :
 --> 버튼을 클릭 할 때 포스터를 가져옵니다:
