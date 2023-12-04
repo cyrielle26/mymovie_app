@@ -128,19 +128,6 @@ const Rating = styled.h3`
   @media screen and (max-width: 1024px) {
     font-size: 18px;
   }
-
-  @media screen and (max-width: 900px) {
-  }
-  @media screen and (max-width: 768px) {
-  }
-  @media screen and (max-width: 600px) {
-  }
-
-  @media screen and (max-width: 480px) {
-  }
-
-  @media screen and (max-width: 320px) and (min-width: 300px) {
-  }
 `;
 
 const Genre = styled.ul`
@@ -168,16 +155,6 @@ const Genre = styled.ul`
     padding: 50px;
     margin: 50px;
   }
-  @media screen and (max-width: 768px) {
-  }
-  @media screen and (max-width: 600px) {
-  }
-
-  @media screen and (max-width: 480px) {
-  }
-
-  @media screen and (max-width: 320px) (min-width: 300px) {
-  }
 `;
 
 const Release = styled.div`
@@ -185,17 +162,6 @@ const Release = styled.div`
 
   @media screen and (max-width: 900px) {
     margin-top: 20px;
-  }
-
-  @media screen and (max-width: 768px) {
-  }
-  @media screen and (max-width: 600px) {
-  }
-
-  @media screen and (max-width: 480px) {
-  }
-
-  @media screen and (max-width: 320px) and (min-width: 300px) {
   }
 `;
 
@@ -213,16 +179,6 @@ const Description = styled.p`
   margin-bottom: 50px;
   @media screen and (max-width: 900px) {
     margin-top: 20px;
-  }
-  @media screen and (max-width: 768px) {
-  }
-  @media screen and (max-width: 600px) {
-  }
-
-  @media screen and (max-width: 480px) {
-  }
-
-  @media screen and (max-width: 320px) (min-width: 300px) {
   }
 `;
 

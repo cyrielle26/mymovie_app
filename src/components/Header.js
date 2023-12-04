@@ -28,13 +28,6 @@ const GnbWrap = styled.div`
   justify-content: space-around;
 `;
 
-const Logo = styled.div`
-  font-size: 28px;
-  font-weight: 700;
-  margin-right: 80px;
-  font-family: "oswald";
-`;
-
 export const Header = () => {
   const headerRef = useRef();
 
@@ -64,9 +57,6 @@ export const Header = () => {
   return (
     <Sheader ref={headerRef}>
       <GnbWrap>
-        <Logo>
-          <Link to={routes.home}> PCMovie</Link>
-        </Logo>
         <Gnb />
       </GnbWrap>
       <SearchHandler />

@@ -9,6 +9,25 @@ const Container = styled.footer`
   justify-content: center;
   align-items: center;
   border-top: 1px solid rgba(255, 255, 255, 0.6);
+  @media screen and (max-width: 1200px) {
+  }
+
+  @media screen and (max-width: 1024px) {
+  }
+
+  @media screen and (max-width: 900px) {
+    padding-top: 95%;
+  }
+  @media screen and (max-width: 768px) {
+  }
+  @media screen and (max-width: 600px) {
+  }
+
+  @media screen and (max-width: 480px) {
+  }
+
+  @media screen and (max-width: 320px) and (min-width: 300px) {
+  }
 `;
 
 export const Footer = () => {

@@ -7,101 +7,178 @@ import { IMG_URL } from "../../constants";
 import { scrollTop } from "../../lib/scrollTop";
 
 const Container = styled.div`
-  padding: 100px 150px 100px;
+  position: relative;
+  width: 60%;
+  margin: 100px 20% 0px 20%;
+  padding: 0 55px;
   display: flex;
   justify-content: space-between;
-  @media screen and (max-width: 815px) {
-    padding: 100px;
+  flex-direction: column;
+  @media screen and (max-width: 1200px) {
+    width: 70%;
+    margin: 85px 16% 0px 16%;
+    font-size: 16px;
   }
-  @media screen and (max-width: 450px) {
-    flex-direction: column;
-    padding: 100px 5%;
+
+  @media screen and (max-width: 600px) {
+    width: 90%;
+    margin: 70px 5% 0 5%;
+    padding: 0 45px;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
+`;
+const BgWrap = styled.div`
+  width: 100%;
+  height: 600px;
+  @media screen and (max-width: 1200px) {
+    height: 500px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    height: 300px;
+  }
+
+  @media screen and (max-width: 480px) {
+    height: 350px;
   }
 `;
 
 const Bg = styled.div`
-  width: 40%;
-  height: 700px;
-  background-color: lightgray;
-  background: url(${IMG_URL}/w1280/${(props) => props.$bgUrl}) no-repeat center /
-    cover;
-  @media screen and (max-width: 950px) {
-    height: 680px;
-  }
-  @media screen and (max-width: 815px) {
-    width: 65%;
-  }
-  @media screen and (max-width: 450px) {
-    width: 100%;
-    height: 500px;
-  }
+  border-radius: 5px 5px 0px 0px;
+  width: 100%;
+  height: 100%;
+  background: url(${IMG_URL}/original/${(props) => props.$bgUrl}) no-repeat
+    center / contain;
 `;
 
 const InfoWrap = styled.div`
-  width: 55%;
-  font-size: 20px;
-  padding-top: 50px;
-  @media screen and (max-width: 950px) {
-    width: 60%;
-    font-size: 16px;
-    padding-left: 50px;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  border-bottom: 1px solid white;
+  @media screen and (max-width: 1200px) {
+    max-height: 70%;
   }
-  @media screen and (max-width: 815px) {
+
+  @media screen and (max-width: 900px) {
+    max-height: 60%;
     font-size: 14px;
   }
-  @media screen and (max-width: 450px) {
-    width: 100%;
+
+  @media screen and (max-width: 480px) {
+    max-height: 50%;
   }
 `;
 
-const MovieTitle = styled.h3`
-  font-size: 60px;
-  font-weight: 700;
-  margin-bottom: 30px;
-  @media screen and (max-width: 815px) {
-    font-size: 40px;
+const TitleWrap = styled.div`
+  margin-top: 40px;
+  width: 100%;
+  line-height: 30px;
+  height: 25%;
+  display: flex;
+  justify-content: space-between;
+  @media screen and (max-width: 1200px) {
+    margin-top: 10px;
+    line-height: 24px;
+    height: 10%;
   }
-  @media screen and (max-width: 450px) {
-    font-size: 30px;
+
+  @media screen and (max-width: 1024px) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 900px) {
+    margin-top: 50px;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 14px;
+    margin-top: 10px;
+    line-height: 15px;
+  }
+`;
+
+const SerieTitle = styled.h3`
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 30px;
+  @media screen and (max-width: 1200px) {
+    font-size: 24px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 14px;
   }
 `;
 
 const Rating = styled.h3`
+  padding: 20px;
+  font-size: 20px;
   font-weight: 400;
+  float: right;
+  @media screen and (max-width: 1024px) {
+    font-size: 18px;
+  }
 `;
 
 const Genre = styled.ul`
-  margin: 20px 0;
+  padding: 70px;
+  font-size: 20px;
   li {
     list-style: disc;
     margin-left: 20px;
     margin-bottom: 10px;
   }
+  @media screen and (max-width: 1200px) {
+    padding: 50px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    font-size: 16px;
+    padding: 40px;
+  }
+
+  @media screen and (max-width: 900px) {
+    font-size: 14px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 50px;
+    margin: 50px;
+  }
 `;
 
 const Release = styled.div`
-  margin-bottom: 20px;
+  margin-top: 50px;
+
+  @media screen and (max-width: 900px) {
+    margin-top: 20px;
+  }
 `;
 
 const Runtime = styled.div``;
 
 const Description = styled.p`
-  max-width: 70%;
+  max-width: 60%;
   width: 100%;
   margin-top: 50px;
-  border-top: 1px solid white;
   padding-top: 50px;
   opacity: 0.7;
+  line-height: 1em;
+  font-weight: 400;
   line-height: 2em;
-  font-weight: 300;
-  @media screen and (max-width: 815px) {
-    padding-top: 30px;
-  }
-  @media screen and (max-width: 450px) {
-    max-width: 100%;
+  margin-bottom: 50px;
+  @media screen and (max-width: 900px) {
+    margin-top: 20px;
   }
 `;
-
 const Keywords = styled.div``;
 
 export const DetailMovie = () => {
