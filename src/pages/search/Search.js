@@ -41,6 +41,9 @@ const Input = styled.input`
   border-radius: 13px;
   padding: 5px;
   width: 260px;
+  @media screen and (max-width: 480px) and (min-width: 300px) {
+    margin-bottom: 50px;
+  }
 `;
 
 const ConWrap = styled.div`
@@ -50,12 +53,23 @@ const ConWrap = styled.div`
   grid-template-columns: repeat(5, 1fr);
   column-gap: 30px;
   row-gap: 50px;
+
+  @media screen and (max-width: 480px) and (min-width: 300px) {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 5px;
+    padding: 55px;
+  }
 `;
 
 const SearchResultsTitle = styled.h3`
   padding-left: 100px;
   font-size: 20px;
   margin-bottom: 25px;
+  @media screen and (max-width: 480px) and (min-width: 300px) {
+    font-size: 16px;
+  }
 `;
 
 const Con = styled.div``;
@@ -66,6 +80,10 @@ const Bg = styled.div`
     cover;
   background-color: #f9f9f9;
   box-shadow: 10px 10px 10px black;
+  @media screen and (max-width: 480px) and (min-width: 300px) {
+    height: 200px;
+    border-radius: 5px;
+  }
 `;
 
 const MovieTitle = styled.div`
@@ -82,33 +100,33 @@ const NoResults = styled.h3`
   padding: 0 40%;
 `;
 
-const SuggestionContainer = styled.div``;
-const SuggestionTitle = styled.div``;
-const CoverBg = styled.div``;
+// const SuggestionContainer = styled.div``;
+// const SuggestionTitle = styled.div``;
+// const CoverBg = styled.div``;
 
-const SerieTitle = styled.div``;
+// const SerieTitle = styled.div``;
 
-const params = {
-  slidesPerView: 5.5,
-  spaceBetween: 20,
-  breakpoints: {
-    // when window width is >=  1024px
-    1024: {
-      slidesPerView: 5.5,
-      spaceBetween: 20
-    },
-    // when window width is >= 640px
-    640: {
-      slidesPerView: 4.3,
-      spaceBetween: 15
-    },
-    // when window width is >= 320px
-    320: {
-      slidesPerView: 3.2,
-      spaceBetween: 10
-    }
-  }
-};
+// const params = {
+//   slidesPerView: 5.5,
+//   spaceBetween: 20,
+//   breakpoints: {
+//     // when window width is >=  1024px
+//     1024: {
+//       slidesPerView: 5.5,
+//       spaceBetween: 20
+//     },
+//     // when window width is >= 640px
+//     640: {
+//       slidesPerView: 4.3,
+//       spaceBetween: 15
+//     },
+//     // when window width is >= 320px
+//     320: {
+//       slidesPerView: 3.2,
+//       spaceBetween: 10
+//     }
+//   }
+// };
 
 export const Search = () => {
   const { register, handleSubmit } = useForm({

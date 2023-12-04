@@ -21,8 +21,9 @@ const Sheader = styled.header`
   left: 0;
   z-index: 8;
   @media screen and (max-width: 480px) {
-    height: 15%;
+    height: 12%;
     padding: 20px 10%;
+    align-items: center;
   }
 `;
 

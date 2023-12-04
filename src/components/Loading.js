@@ -7,6 +7,9 @@ const Wrap = styled.div`
   align-items: center;
   justify-content: center;
   padding: 300px;
+  @media screen and (max-width: 480px) and (min-width: 300px) {
+    padding: 50%;
+  }
 `;
 
 export const Loading = () => {

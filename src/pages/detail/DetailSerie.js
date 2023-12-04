@@ -11,25 +11,27 @@ import { faStar } from "@fortawesome/free-regular-svg-icons";
 const Container = styled.div`
   position: relative;
   width: 60%;
-  margin: 100px 20% 0px 20%;
+  /* margin: 100px 20% 0px 20%; */
   padding: 0 55px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   flex-direction: column;
   @media screen and (max-width: 1200px) {
     width: 70%;
-    margin: 85px 16% 0px 16%;
+    /* margin: 85px 16% 0px 16%; */
     font-size: 16px;
   }
 
   @media screen and (max-width: 600px) {
     width: 90%;
-    margin: 70px 5% 0 5%;
+    /* margin: 70px 5% 0 5%; */
     padding: 0 45px;
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 480px) and (min-width: 300px) {
     width: 100%;
+    /* margin: ; */
   }
 `;
 const BgWrap = styled.div`
@@ -45,6 +47,7 @@ const BgWrap = styled.div`
 
   @media screen and (max-width: 480px) {
     height: 350px;
+    width: 100%;
   }
 `;
 
@@ -54,6 +57,10 @@ const Bg = styled.div`
   height: 100%;
   background: url(${IMG_URL}/original/${(props) => props.$bgUrl}) no-repeat
     center / contain;
+
+  @media screen and (max-width: 480px) {
+    height: 100%;
+  }
 `;
 
 const InfoWrap = styled.div`

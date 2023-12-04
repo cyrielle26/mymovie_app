@@ -18,6 +18,10 @@ const NavWrap = styled.ul`
   h3 {
     margin-left: 5px;
   }
+  @media screen and (max-width: 900px) {
+    width: 400px;
+    font-size: 18px;
+  }
   @media screen and (max-width: 480px) {
     display: none;
   }
@@ -28,9 +32,18 @@ const Logo = styled.div`
   font-weight: 700;
   margin-right: 80px;
   font-family: "oswald";
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 1200px) {
+    width: 185px;
+    margin-right: 65px;
   }
-  @media screen and (min-width: 300px) {
+
+  @media screen and (max-width: 900px) {
+    margin-right: 25px;
+    width: 150px;
+  }
+
+  @media screen and (max-width: 800px) {
+    display: none;
   }
 `;
 

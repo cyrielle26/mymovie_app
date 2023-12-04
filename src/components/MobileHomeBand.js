@@ -10,12 +10,13 @@ const Container = styled.div`
 `;
 
 const BottomMobileNav = styled.div`
+  display: none;
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   background-color: rgba(142, 165, 214, 0.8);
-  display: flex;
+
   justify-content: center;
   align-items: center;
   z-index: 10;
@@ -26,6 +27,9 @@ const BottomMobileNav = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+  }
+  @media screen and (max-width: 480px) and (min-width: 300px) {
+    display: flex;
   }
 `;
 
