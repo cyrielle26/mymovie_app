@@ -76,7 +76,7 @@ const GenreWrap = styled.ul`
   width: 85%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   gap: 8px;
   @media screen and (max-width: 1200px) {

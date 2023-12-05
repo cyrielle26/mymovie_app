@@ -28,7 +28,7 @@ const BottomMobileNav = styled.div`
     flex-direction: column;
     justify-content: space-around;
   }
-  @media screen and (max-width: 480px) and (min-width: 300px) {
+  @media screen and (max-width: 480px) and (min-width: 320px) {
     display: flex;
     justify-content: center;
     align-self: center;

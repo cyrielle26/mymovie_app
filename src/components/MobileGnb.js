@@ -22,26 +22,44 @@ const TopMobileNav = styled.ul`
   font-size: 18px;
   height: 30px;
   margin-bottom: 20px;
+
   li {
     margin: 20px;
+
+    @media screen and (max-width: 415px) and (min-width: 300px) {
+      margin: 15px;
+    }
   }
   a {
     display: flex;
     align-items: center;
     justify-content: center;
+    @media screen and (max-width: 415px) and (min-width: 300px) {
+      display: flex;
+      font-size: 14px;
+      flex-direction: column;
+    }
   }
   h3 {
     margin-left: 5px;
+
+    @media screen and (max-width: 415px) and (min-width: 300px) {
+      display: inline;
+      margin-top: 5px;
+    }
   }
-  @media screen and (max-width: 480px) {
+
+  @media screen and (min-width: 481px) {
     display: none;
   }
-  @media screen and (min-width: 450px) {
+  @media screen and (max-width: 450px) {
     font-size: 16px;
   }
 
-  @media screen and (min-width: 300px) {
+  @media screen and (max-width: 415px) and (min-width: 300px) {
     display: flex;
+    font-size: 14px;
+    margin-left: 2%;
   }
 `;
 

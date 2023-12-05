@@ -22,8 +22,12 @@ const SearchWrap = styled.div`
     font-size: 18px;
     margin-bottom: 34px;
   }
-  @media screen and (min-width: 450px) {
+  @media screen and (max-width: 450px) {
     font-size: 16px;
+  }
+  @media screen and (max-width: 320px) and (min-width: 300px) {
+    width: 80px;
+    font-size: 14px;
   }
 `;
 
