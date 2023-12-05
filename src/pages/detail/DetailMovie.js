@@ -6,15 +6,7 @@ import { Loading } from "../../components/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
 import { ScrollTop } from "../../lib/ScrollTop";
-import {
-  Container,
-  InfoWrap,
-  BgWrap,
-  Bg,
-  Title,
-  Description,
-  Rating
-} from "./DetailLayout";
+import { Container, InfoWrap, BgWrap, Bg, Title, Rating } from "./DetailLayout";
 
 const TopCon = styled.div`
   margin-top: 40px;
@@ -95,6 +87,28 @@ const Runtime = styled.div`
   font-size: 20px;
   @media screen and (max-width: 768px) {
     font-size: 16px;
+  }
+`;
+
+const Description = styled.p`
+  max-width: 60%;
+  width: 100%;
+  margin-top: 50px;
+  padding-top: 20px;
+  opacity: 0.7;
+  line-height: 1em;
+  font-weight: 400;
+  line-height: 2em;
+  margin-bottom: 50px;
+  @media screen and (max-width: 1200px) {
+    margin-top: 0px;
+    max-width: 80%;
+  }
+  @media screen and (max-width: 900px) {
+    margin-top: 20px;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
   }
 `;
 

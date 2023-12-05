@@ -15,6 +15,7 @@ const Container = styled.div`
     margin: 85px 16% 0px 16%;
     font-size: 16px;
   }
+
   @media screen and (max-width: 768px) {
     width: 80%;
     padding: 0;
@@ -68,6 +69,10 @@ const InfoWrap = styled.div`
     max-height: 80%;
     padding-top: 0px;
   }
+  @media screen and (max-width: 1024px) {
+    max-height: 70%;
+    padding-top: 40px;
+  }
 
   @media screen and (max-width: 900px) {
     max-height: 60%;
@@ -96,26 +101,6 @@ const Rating = styled.h3`
   }
 `;
 
-const Description = styled.p`
-  max-width: 60%;
-  width: 100%;
-  margin-top: 50px;
-  padding-top: 20px;
-  opacity: 0.7;
-  line-height: 1em;
-  font-weight: 400;
-  line-height: 2em;
-  margin-bottom: 50px;
-  @media screen and (max-width: 1200px) {
-    margin-top: 25px;
-  }
-  @media screen and (max-width: 900px) {
-    margin-top: 20px;
-  }
-  @media screen and (max-width: 768px) {
-    font-size: 14px;
-  }
-`;
 const Title = styled.h3`
   font-size: 30px;
   font-weight: 900;
@@ -134,4 +119,4 @@ const Title = styled.h3`
   }
 `;
 
-export { Container, InfoWrap, BgWrap, Bg, Title, Description, Rating };
+export { Container, InfoWrap, BgWrap, Bg, Title, Rating };
