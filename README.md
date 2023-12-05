@@ -10,7 +10,7 @@
 - [] Get suggestion Movie -> api request -> Search
   I don't know how to link search Id results to suggestion api request get the poster_path data related to the movie search :
   need to get search result first movie id and use this id movie id for the suggestion api request
-- [] Toggle input bar searchVisible/invisible + get the data from the form
+- [] Toggle input bar searchVisible/invisible + get the data from the form : useForm getValue useController ?
 - [] update the search button 반응형
 - [] find a solution to open a window Link to Detail when clicking on a image :
   GlobalWindowOpener? -REACT DOM hook(useLocation, useHistory,)
