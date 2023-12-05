@@ -31,13 +31,26 @@ const SMainBanner = styled.div`
     letter-spacing: 1px;
     opacity: 0.7;
   }
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 800px) {
     h3 {
-      font-size: 50px;
-      line-height: 65px;
+      margin-bottom: 25px;
     }
     p {
       font-size: 16px;
+      max-width: 500px;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    height: 70vh;
+
+    p {
+      max-width: 400px;
+    }
+  }
+  @media screen and (max-width: 450px) and (min-width: 300px) {
+    p {
+      max-width: 320px;
+      font-size: 14px;
     }
   }
 `;

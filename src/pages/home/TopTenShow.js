@@ -13,9 +13,7 @@ const Title = styled.h3`
   font-weight: 700;
   margin-bottom: 50px;
   @media screen and (max-width: 450px) {
-    font-size: 24px;
-    margin-bottom: 10px;
-    font-size: 24px;
+    font-size: 20px;
   }
 `;
 
@@ -29,10 +27,18 @@ const NumListWrap = styled.ul`
     word-break: keep-all;
     letter-spacing: -64px;
     overflow: hidden;
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1200px) {
       font-size: 280px;
       line-height: 239px;
       letter-spacing: -45px;
+    }
+    @media screen and (max-width: 900px) {
+      font-size: 250px;
+      line-height: 220px;
+    }
+    @media screen and (max-width: 768px) {
+      font-size: 230px;
+      line-height: 200px;
     }
     @media screen and (max-width: 450px) {
       font-size: 200px;
@@ -49,10 +55,17 @@ const CoverBg = styled.div`
     cover;
   border-radius: 5px;
   margin-bottom: 15px;
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1200px) {
     height: 239px;
     width: 154px;
     margin-bottom: 15px;
+  }
+  @media screen and (max-width: 900px) {
+    height: 200px;
+    width: 150px;
+  }
+  @media screen and (max-width: 768px) {
+    height: 180px;
   }
   @media screen and (max-width: 450px) {
     height: 170px;

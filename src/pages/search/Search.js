@@ -14,6 +14,9 @@ import { Loading } from "../../components/Loading";
 const Container = styled.div`
   width: 100vw;
   height: 100%;
+  @media screen and (max-width: 480px) {
+    margin-bottom: 120px;
+  }
 `;
 
 const InputWrap = styled.div`
@@ -53,13 +56,28 @@ const ConWrap = styled.div`
   grid-template-columns: repeat(5, 1fr);
   column-gap: 30px;
   row-gap: 50px;
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 75px;
+  }
+
+  @media screen and (max-width: 900px) {
+    padding: 50px;
+  }
+  @media screen and (max-width: 600px) {
+    column-gap: 20px;
+    row-gap: 10px;
+  }
   @media screen and (max-width: 480px) and (min-width: 300px) {
     width: 100%;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 10px;
     row-gap: 5px;
-    padding: 55px;
+    padding: 25px;
   }
 `;
 
@@ -67,6 +85,16 @@ const SearchResultsTitle = styled.h3`
   padding-left: 100px;
   font-size: 20px;
   margin-bottom: 25px;
+  @media screen and (max-width: 1024px) {
+    padding-left: 85px;
+  }
+  @media screen and (max-width: 900px) {
+    padding-left: 65px;
+  }
+  @media screen and (max-width: 600px) and (min-width: 300px) {
+    padding-left: 55px;
+    margin-bottom: 5px;
+  }
   @media screen and (max-width: 480px) and (min-width: 300px) {
     font-size: 16px;
   }
@@ -75,20 +103,31 @@ const SearchResultsTitle = styled.h3`
 const Con = styled.div``;
 
 const Bg = styled.div`
+  border-radius: 5px;
   height: 300px;
   background: url(${IMG_URL}/w500/${(props) => props.$bgUrl}) no-repeat center /
     cover;
   background-color: #f9f9f9;
   box-shadow: 10px 10px 10px black;
+  @media screen and (max-width: 768px) {
+    height: 250px;
+  }
+  @media screen and (max-width: 600px) {
+    height: 190px;
+    border-radius: 10px;
+  }
   @media screen and (max-width: 480px) and (min-width: 300px) {
     height: 200px;
-    border-radius: 5px;
+    border-radius: 15px;
   }
 `;
 
 const MovieTitle = styled.div`
   margin-top: 25px;
   font-size: 18px;
+  @media screen and (max-width: 600px) and (min-width: 300px) {
+    font-size: 14px;
+  }
 `;
 const Type = styled.div`
   margin-top: 25px;

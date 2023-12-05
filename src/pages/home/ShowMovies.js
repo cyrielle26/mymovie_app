@@ -6,6 +6,9 @@ import "swiper/css";
 
 const Container = styled.section`
   margin-bottom: 80px;
+  @media screen and (max-width: 450px) {
+    margin-bottom: 140px;
+  }
 `;
 
 const Title = styled.h3`
@@ -13,7 +16,7 @@ const Title = styled.h3`
   font-weight: 700;
   margin-bottom: 50px;
   @media screen and (max-width: 450px) {
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 30px;
   }
 `;
@@ -27,7 +30,7 @@ const CoverBg = styled.div`
   box-shadow: 10px 10px 10px black;
   @media screen and (max-width: 450px) {
     height: 150px;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
   }
 `;
 const MovieTitle = styled.h3`
@@ -35,9 +38,12 @@ const MovieTitle = styled.h3`
   margin-top: 10px;
   max-width: 300px;
   font-size: 16px;
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 1024px) {
     font-size: 14px;
-    line-height: 22px;
+    max-width: 80%;
+  }
+  @media screen and (max-width: 450px) {
+    display: none;
   }
 `;
 
