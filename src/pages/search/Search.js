@@ -3,6 +3,8 @@ import { search } from "../../api";
 import { useEffect, useState } from "react";
 import { MainLayout } from "../../components/MainLayout";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { IMG_URL } from "../../constants";
 import { ScrollTop } from "../../lib/ScrollTop";
 // import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,6 +12,7 @@ import { ScrollTop } from "../../lib/ScrollTop";
 // import { movieRecommendations } from "../../api";
 import { useParams } from "react-router-dom";
 import { Loading } from "../../components/Loading";
+import { SearchHandler } from "../../components/SearchHandler";
 
 const Container = styled.div`
   width: 100vw;
@@ -41,11 +44,24 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-  border-radius: 13px;
+  all: unset;
+  margin: 0.5em;
+  color: ${(props) => props.$inputColor || "red"};
+  background: #f9f9f9;
+  font-family: "oswald";
+  font-weight: 800;
+  border: none;
+  border-radius: 5px;
   padding: 5px;
   width: 260px;
+  opacity: 0.7;
   @media screen and (max-width: 480px) and (min-width: 300px) {
     margin-bottom: 50px;
+  }
+  &:focus {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 2px 2px 2px 2px #f5f5f5;
   }
 `;
 
@@ -134,9 +150,14 @@ const Type = styled.div`
   font-size: 18px;
 `;
 
+const Button = styled.button`
+  all: unset;
+`;
+
 const NoResults = styled.h3`
   font-size: 20px;
   padding: 0 40%;
+  word-break: keep-all;
 `;
 
 // const SuggestionContainer = styled.div``;
@@ -213,12 +234,16 @@ export const Search = () => {
         <InputWrap>
           <Title>Anything in mind?</Title>
           <Form onSubmit={handleSubmit(searchHandler)}>
+            <Button type="submit">
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </Button>
             <Input
               {...register("search", {
                 required: "Please enter a search term"
               })}
               type="text"
               placeholder="Movie, show..."
+              $inputColor="#040714"
             />
           </Form>
         </InputWrap>
