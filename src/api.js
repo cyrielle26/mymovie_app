@@ -88,6 +88,8 @@ export const search = (type, keyword) => {
 
 export const genreList = (type) => {
   const genreUrl = baseUrl + `genre/${type}/list?language=en-US`;
+  
+  
   return fetch(genreUrl, options).then((res) => res.json());
 };
 

@@ -143,13 +143,13 @@ export const GenreList = ({
   const [moviegenresData, setMovieGenresData] = useState([]); //store the fetched Movie genre data
   const [seriegenresData, setSerieGenresData] = useState([]); //store the fetched TV genre data
 
-  const [nonActiveGenreId, setNonActiveGenreId] = useState([]); //used to store the non-selected genre values genre, setGenre
-  const [activeGenreId, setActiveGenreId] = useState([]); //used to store the selected genre valuesto store the selected genre values
+  const [nonActiveGenreId, setNonActiveGenreId] = useState([]); //used to store the non-selected genre values
+  const [activeGenreId, setActiveGenreId] = useState([]); //used to store the selected genre values
 
   const [activeButton, setActiveButton] = useState("");
 
-  // const [movieData, setMovieData] = useState();
-  // const [tvData, setTvData] = useState();
+  const [movieData, setMovieData] = useState();
+  const [tvData, setTvData] = useState();
 
   //Get data from the  the api request {genrelist} type: "movie" / "tv"
   useEffect(() => {
@@ -177,25 +177,18 @@ export const GenreList = ({
     setActiveButton(!activeButton);
   };
 
-  //fetchPoster
+  // fetchPoster
   // useEffect(() => {
   //   const fetchPoster = async (genreId) => {
   //     try {
   //       //***********************************************************************
   //       const { results: discoverMovie } = await discover("movie");
-  //
-  //       );
-  //       if (hasMovieGenre) {
-  //         setMovieData(discoverMovie);
-  //       }
+  //       setMovieData(discoverMovie);
+
   //       //***********************************************************************
   //       const { results: discoverSerie } = await discover("tv");
-  //       const hasTvGenre = discoverSerie.results.some((tv) =>
-  //         tv.genre_ids.includes(genreId)
-  //       );
-  //       if (hasTvGenre) {
-  //         setTvData(discoverSerie);
-  //       }
+  //       setTvData(discoverSerie);
+
   //       //***********************************************************************
   //     } catch (error) {
   //       console.error("Error fetching discover data:", error);
@@ -239,7 +232,7 @@ export const GenreList = ({
       </GenreWrap>
       {/* ********************************************************************************************************************************************************** */}
       {/* ********************************************************************************************************************************************************** */}
-      {/* {movieData.map((movie) => (
+      {/* {discoverMovie.map((movie, index) => (
         <PosterWrap key={movie.id}>
           <Link to={`/movie/${movie.id}`}>
             <MoviePoster $moviebgUrl={movie.poster_path} />
@@ -248,7 +241,7 @@ export const GenreList = ({
       ))} */}
 
       {/* ********************************************************************************************************************************************************** */}
-      {/* {tvData.map((tv) => (
+      {/* {discoverSerie.map((tv, index) => (
         <PosterWrap key={tv.id}>
           <Link to={`/tv/${tv.id}`}>
             <SeriePoster $tvbgUrl={tv.poster_path} />
