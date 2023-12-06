@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { genreList } from "../api";
 import { discover } from "../api";
 import { Link } from "react-router-dom";
-import { routes } from "../routes";
 import { IMG_URL } from "../constants";
 
 const Container = styled.div`
@@ -140,14 +139,17 @@ export const GenreList = ({
   showSerieGenreList
 }) => {
   //useState declarations
-  const [moviegenresData, setMovieGenresData] = useState([]);
-  const [seriegenresData, setSerieGenresData] = useState([]);
 
-  const [activeGenreId, setActiveGenreId] = useState();
+  const [moviegenresData, setMovieGenresData] = useState([]); //store the fetched Movie genre data
+  const [seriegenresData, setSerieGenresData] = useState([]); //store the fetched TV genre data
+
+  const [nonActiveGenreId, setNonActiveGenreId] = useState([]); //used to store the non-selected genre values genre, setGenre
+  const [activeGenreId, setActiveGenreId] = useState([]); //used to store the selected genre valuesto store the selected genre values
+
   const [activeButton, setActiveButton] = useState("");
 
-  const [movieData, setMovieData] = useState();
-  const [tvData, setTvData] = useState();
+  // const [movieData, setMovieData] = useState();
+  // const [tvData, setTvData] = useState();
 
   //Get data from the  the api request {genrelist} type: "movie" / "tv"
   useEffect(() => {
@@ -176,33 +178,32 @@ export const GenreList = ({
   };
 
   //fetchPoster
-  useEffect(() => {
-    const fetchPoster = async (genreId) => {
-      try {
-        //***********************************************************************
-        const { results: discoverMovie } = await discover("movie");
-        const hasMovieGenre = discoverMovie.results.some((movie) =>
-          movie.genre_ids.includes(genreId)
-        );
-        if (hasMovieGenre) {
-          setMovieData(discoverMovie);
-        }
-        //***********************************************************************
-        const { results: discoverSerie } = await discover("tv");
-        const hasTvGenre = discoverSerie.results.some((tv) =>
-          tv.genre_ids.includes(genreId)
-        );
-        if (hasTvGenre) {
-          setTvData(discoverSerie);
-        }
-        //***********************************************************************
-      } catch (error) {
-        console.error("Error fetching discover data:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchPoster = async (genreId) => {
+  //     try {
+  //       //***********************************************************************
+  //       const { results: discoverMovie } = await discover("movie");
+  //
+  //       );
+  //       if (hasMovieGenre) {
+  //         setMovieData(discoverMovie);
+  //       }
+  //       //***********************************************************************
+  //       const { results: discoverSerie } = await discover("tv");
+  //       const hasTvGenre = discoverSerie.results.some((tv) =>
+  //         tv.genre_ids.includes(genreId)
+  //       );
+  //       if (hasTvGenre) {
+  //         setTvData(discoverSerie);
+  //       }
+  //       //***********************************************************************
+  //     } catch (error) {
+  //       console.error("Error fetching discover data:", error);
+  //     }
+  //   };
 
-    fetchPoster();
-  }, [activeGenreId]);
+  //   fetchPoster();
+  // }, [activeGenreId]);
 
   return (
     <Container>
@@ -240,7 +241,7 @@ export const GenreList = ({
       {/* ********************************************************************************************************************************************************** */}
       {movieData.map((movie) => (
         <PosterWrap key={movie.id}>
-          <Link to={routes.movieDetail}>
+          <Link to={`/movie/${movie.id}`}>
             <MoviePoster $moviebgUrl={movie.poster_path} />
           </Link>
         </PosterWrap>

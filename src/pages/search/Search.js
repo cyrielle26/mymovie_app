@@ -7,16 +7,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { IMG_URL } from "../../constants";
 import { ScrollTop } from "../../lib/ScrollTop";
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import "swiper/css";
-// import { movieRecommendations } from "../../api";
 import { useParams } from "react-router-dom";
 import { Loading } from "../../components/Loading";
-import { SearchHandler } from "../../components/SearchHandler";
 
 const Container = styled.div`
   width: 100%;
   height: 100%;
+
+  @media screen and (max-width: 900px) {
+    margin-top: 100px;
+  }
   @media screen and (max-width: 480px) {
     margin-bottom: 120px;
   }
