@@ -2,12 +2,12 @@ import styled from "styled-components";
 import { Gnb } from "./Gnb";
 import { useRef, useEffect } from "react";
 import { MobileGnb } from "./MobileGnb";
-import { SearchHandler } from "./SearchHandler";
 
 const Sheader = styled.header`
   width: 100vw;
   height: 95px;
-  padding: 20px 5%;
+  padding: 3%;
+  margin: 0 auto;
   background: linear-gradient(
     180deg,
     rgba(4, 7, 20, 1) 0%,
@@ -20,26 +20,34 @@ const Sheader = styled.header`
   top: 0;
   left: 0;
   z-index: 8;
-  @media screen and (max-width: 480px) {
-    height: 12%;
-    padding: 20px 10%;
-    align-items: center;
+  @media screen and (max-width: 560px) {
+    padding: 5%;
+    height: 90px;
+  }
+  @media screen and (max-width: 450px) {
+    padding: 6%;
   }
 `;
 
 const GnbWrap = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-around;
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 560px) {
     display: none;
   }
 `;
 const MobileGnbWrap = styled.div`
-  display: none;
-  @media screen and (max-width: 480px) {
-    display: flex;
+  width: 100%;
+  display: flex;
+  margin-bottom: 30px;
+  @media screen and (min-width: 562px) {
+    display: none;
   }
 `;
+
+//*******************************************************************************************************
+
 export const Header = () => {
   const headerRef = useRef();
 
@@ -74,7 +82,6 @@ export const Header = () => {
       <MobileGnbWrap>
         <MobileGnb />
       </MobileGnbWrap>
-      <SearchHandler />
     </Sheader>
   );
 };

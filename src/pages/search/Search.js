@@ -15,7 +15,7 @@ import { Loading } from "../../components/Loading";
 import { SearchHandler } from "../../components/SearchHandler";
 
 const Container = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100%;
   @media screen and (max-width: 480px) {
     margin-bottom: 120px;
@@ -121,8 +121,7 @@ const Con = styled.div``;
 const Bg = styled.div`
   border-radius: 5px;
   height: 300px;
-  background: url(${IMG_URL}/w500/${(props) => props.$bgUrl}) no-repeat center /
-    cover;
+  background: url(${(props) => props.$bgUrl}) no-repeat center / cover;
   background-color: #f9f9f9;
   box-shadow: 10px 10px 10px black;
   @media screen and (max-width: 768px) {
@@ -263,8 +262,6 @@ export const Search = () => {
                           $bgUrl={
                             data.backdrop_path
                               ? `${IMG_URL}/w500/${data.backdrop_path}`
-                              : data.poster_path
-                              ? `${IMG_URL}/w500/${data.poster_path}`
                               : "https://congtygiaphat104.com/template/Default/img/no.png"
                           }
                         />

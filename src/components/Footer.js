@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
 const Container = styled.footer`
-  padding-top: 90%;
+  /* padding-top: 90%; */
+  // position: absolute;
+  bottom: 0;
   width: 100%;
-  padding: 100px;
+  max-height: 8%;
+  padding: 50px;
   margin-top: 80px;
   display: flex;
   justify-content: center;
@@ -16,9 +19,10 @@ const Container = styled.footer`
   }
 
   @media screen and (max-width: 900px) {
-    padding-top: 95%;
+    /* padding-top: 95%; */
   }
   @media screen and (max-width: 768px) {
+    /* padding-top: 10; */
   }
   @media screen and (max-width: 600px) {
   }

@@ -2,8 +2,7 @@ import styled from "@emotion/styled";
 import { useState, useEffect } from "react";
 import { genreList } from "../api";
 import { discover } from "../api";
-import { Link } from "react-router-dom";
-import { routes } from "../routes";
+import { Link, useParams } from "react-router-dom";
 import { IMG_URL } from "../constants";
 
 const Container = styled.div`
@@ -41,7 +40,7 @@ const Button = styled.button`
   line-height: 14px;
   border-radius: 15px;
   background-color: ${(props) =>
-    props.isActive ? "rgba(249, 249, 249, 0.5)" : "#040714"};
+    props.isactive ? "rgba(249, 249, 249, 0.5)" : "#040714"};
   opacity: 0.8;
   border: 1px solid #f9f9f9;
   padding: 5px;
@@ -116,9 +115,8 @@ const MoviePoster = styled.div`
   border-radius: 5px;
   box-shadow: 10px 10px 10px black;
   background: #f9f9f9;
-  /* background: url(${IMG_URL}/w185/${(props) =>
-    props.$moviebgUrl}) no-repeat */
-  /* center / cover; */
+  background: url(${IMG_URL}/w185/${(props) => props.$moviebgUrl}) no-repeat
+    center / cover;
 `;
 
 const SeriePoster = styled.div`
@@ -142,67 +140,92 @@ export const GenreList = ({
   //useState declarations
   const [moviegenresData, setMovieGenresData] = useState([]);
   const [seriegenresData, setSerieGenresData] = useState([]);
-
-  const [activeGenreId, setActiveGenreId] = useState();
+  const [activeGenreId, setActiveGenreId] = useState(false);
   const [activeButton, setActiveButton] = useState("");
-
   const [movieData, setMovieData] = useState();
   const [tvData, setTvData] = useState();
+  const [discovergenreId, setDiscovergenreId] = useState([]);
 
-  //Get data from the  the api request {genrelist} type: "movie" / "tv"
+  //Get data from the  the api request {genrelist} type: "movie"
   useEffect(() => {
-    const fetchGenresData = async () => {
+    const fetchMovieGenresData = async () => {
       try {
         const getMovieGenreData = await genreList("movie");
         setMovieGenresData(getMovieGenreData.genres);
+      } catch (error) {
+        console.error("Error fetching movie genres data:", error);
+      }
+    };
+    fetchMovieGenresData();
+  }, []);
+
+  //Get data from the  the api request {genrelist} type: "tv"
+  useEffect(() => {
+    const fetchSerieGenresData = async () => {
+      try {
         const getSerieGenreData = await genreList("tv");
         setSerieGenresData(getSerieGenreData.genres);
       } catch (error) {
-        console.error("Error fetching  genres data:", error);
+        console.error("Error fetching serie genres data:", error);
       }
     };
-    fetchGenresData();
+    fetchSerieGenresData();
   }, []);
 
-  //onClickHandler change get Id
-  const handleButtonClick = (genreId) => {
-    console.log("Clicked genre id:", genreId);
-    setActiveGenreId(genreId);
+  // Handle button click and extract genre ID + change color + on click event get the specific genreId when clicking on the button (tv)
+  const handleButtonClick = async (genreId) => {
+    try {
+      setActiveGenreId(genreId);
+      const results = await genreList("tv");
+      const getActiveGenre = results.id;
+      setTvData(getActiveGenre);
+      setMovieData(getActiveGenre);
+      console.log(getActiveGenre);
+      setActiveButton(!activeButton);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
 
-  //on click event make the button change color when being clicked on
-  const onClickColorHandler = () => {
-    setActiveButton(!activeButton);
-  };
+  //get movieDataPoster
 
-  //fetchPoster
   useEffect(() => {
-    const fetchPoster = async (genreId) => {
+    const fetchMoviePoster = async () => {
       try {
-        //***********************************************************************
-        const { results: discoverMovie } = await discover("movie");
-        const hasMovieGenre = discoverMovie.results.some((movie) =>
-          movie.genre_ids.includes(genreId)
-        );
-        if (hasMovieGenre) {
-          setMovieData(discoverMovie);
-        }
-        //***********************************************************************
-        const { results: discoverSerie } = await discover("tv");
-        const hasTvGenre = discoverSerie.results.some((tv) =>
-          tv.genre_ids.includes(genreId)
-        );
-        if (hasTvGenre) {
-          setTvData(discoverSerie);
-        }
-        //***********************************************************************
+        const { results } = await discover("movie");
+        const getDiscoverGenreId =
+          results.length > 0 ? results[0].genre_ids : [];
+        setDiscovergenreId(getDiscoverGenreId);
+        setMovieData(results);
       } catch (error) {
-        console.error("Error fetching discover data:", error);
+        console.error("Error fetching movie data:", error);
       }
     };
 
-    fetchPoster();
+    if (activeGenreId) {
+      fetchMoviePoster();
+    }
   }, [activeGenreId]);
+
+  useEffect(() => {
+    const fetchTVPoster = async () => {
+      try {
+        const { results } = await discover("tv");
+        const getDiscoverGenreId =
+          results.length > 0 ? results[0].genre_ids : [];
+        setDiscovergenreId(getDiscoverGenreId);
+        setTvData(results);
+      } catch (error) {
+        console.error("Error fetching tv data:", error);
+      }
+    };
+
+    if (activeGenreId) {
+      fetchTVPoster();
+    }
+  }, [activeGenreId]);
+
+  //******************************************************************************************************************************************************
 
   return (
     <Container>
@@ -211,49 +234,56 @@ export const GenreList = ({
       <GenreWrap>
         {showMovieGenreList &&
           moviegenresData.map((genre) => (
-            <Button
-              key={genre.id}
-              isActive={activeGenreId === genre.id ? "true" : undefined} // Check if the genre ID is active + activate the prop style
-              onClick={() => {
-                handleButtonClick(genre.id);
-                onClickColorHandler();
-              }}>
-              {genre.name}
+            <Button onClick={() => handleButtonClick(genre.id)}>
+              <Link
+                key={genre.id}
+                to={genre.id}
+                isactive={activeGenreId === genre.id ? "true" : undefined} // Check if the genre ID is active + activate the prop style
+                onClick={() => {
+                  handleButtonClick(genre.id);
+                }}>
+                {genre.name}
+              </Link>
             </Button>
           ))}
-
         {/* ************************************************************************************************************************************************** */}
         {showSerieGenreList &&
           seriegenresData.map((genre) => (
             <Button
-              key={genre.id}
-              isActive={activeGenreId === genre.id ? "true" : undefined}
               onClick={() => {
                 handleButtonClick(genre.id);
-                onClickColorHandler();
               }}>
-              {genre.name}
+              <Link
+                key={genre.id}
+                to={genre.id} // Replace with the actual path you want the Link to navigate to
+                isactive={activeGenreId === genre.id ? "true" : undefined} // Check if the genre ID is active + activate the prop style
+                onClick={() => {
+                  handleButtonClick(genre.id);
+                }}>
+                {genre.name}
+              </Link>
             </Button>
           ))}
       </GenreWrap>
       {/* ********************************************************************************************************************************************************** */}
       {/* ********************************************************************************************************************************************************** */}
-      {movieData.map((movie) => (
-        <PosterWrap key={movie.id}>
-          <Link to={routes.movieDetail}>
-            <MoviePoster $moviebgUrl={movie.poster_path} />
-          </Link>
-        </PosterWrap>
-      ))}
-
+      {movieData &&
+        movieData.map((movie) => (
+          <PosterWrap key={movie.id}>
+            <Link>
+              <MoviePoster $moviebgUrl={movie.poster_path} />
+            </Link>
+          </PosterWrap>
+        ))}
       {/* ********************************************************************************************************************************************************** */}
-      {tvData.map((tv) => (
-        <PosterWrap key={tv.id}>
-          <Link to={`/tv/${tv.id}`}>
-            <SeriePoster $tvbgUrl={tv.poster_path} />
-          </Link>
-        </PosterWrap>
-      ))}
+      {tvData &&
+        tvData.map((tv) => (
+          <PosterWrap key={tv.id}>
+            <Link>
+              <SeriePoster $tvbgUrl={tv.poster_path} />
+            </Link>
+          </PosterWrap>
+        ))}
     </Container>
   );
 };

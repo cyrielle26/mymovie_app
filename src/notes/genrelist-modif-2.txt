@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { genreList } from "../api";
 import { discover } from "../api";
 import { Link } from "react-router-dom";
-import { routes } from "../routes";
 import { IMG_URL } from "../constants";
 
 const Container = styled.div`
@@ -137,7 +136,7 @@ export const GenreList = ({
   titleName,
   subtitleName,
   showMovieGenreList,
-  showSerieGenreList
+  showSerieGenreList,
 }) => {
   //useState declarations
   const [moviegenresData, setMovieGenresData] = useState([]);
@@ -179,30 +178,18 @@ export const GenreList = ({
   useEffect(() => {
     const fetchPoster = async (genreId) => {
       try {
-        //***********************************************************************
-        const { results: discoverMovie } = await discover("movie");
-        const hasMovieGenre = discoverMovie.results.some((movie) =>
-          movie.genre_ids.includes(genreId)
-        );
-        if (hasMovieGenre) {
-          setMovieData(discoverMovie);
-        }
-        //***********************************************************************
-        const { results: discoverSerie } = await discover("tv");
-        const hasTvGenre = discoverSerie.results.some((tv) =>
-          tv.genre_ids.includes(genreId)
-        );
-        if (hasTvGenre) {
-          setTvData(discoverSerie);
-        }
-        //***********************************************************************
+        const { results: discoverMovie } = await discover("movie", genreId);
+        setMovieData(discoverMovie);
+
+        const { results: discoverSerie } = await discover("tv", genreId);
+        setTvData(discoverSerie);
       } catch (error) {
         console.error("Error fetching discover data:", error);
       }
     };
 
     fetchPoster();
-  }, [activeGenreId]);
+  }, [activeGenreId]); // Add activeGenreId as a dependency
 
   return (
     <Container>
@@ -218,42 +205,57 @@ export const GenreList = ({
                 handleButtonClick(genre.id);
                 onClickColorHandler();
               }}>
-              {genre.name}
+              <Link
+                key={genre.id}
+                to={genre.id}
+                isactive={genre.toString()} // Check if the genre ID is active
+              >
+                {genre.name}
+              </Link>
             </Button>
           ))}
-
         {/* ************************************************************************************************************************************************** */}
         {showSerieGenreList &&
           seriegenresData.map((genre) => (
             <Button
               key={genre.id}
-              isActive={activeGenreId === genre.id ? "true" : undefined}
               onClick={() => {
-                handleButtonClick(genre.id);
-                onClickColorHandler();
+                handleButtonClick(genre.id, activeGenreId);
               }}>
-              {genre.name}
+              <Link
+                key={genre.id}
+                to={genre.id} // Replace with the actual path you want the Link to navigate to
+                isactive={activeGenreId === genre.id ? "true" : undefined} // Check if the genre ID is active + activate the prop style
+              >
+                {genre.name}
+              </Link>
             </Button>
           ))}
       </GenreWrap>
       {/* ********************************************************************************************************************************************************** */}
       {/* ********************************************************************************************************************************************************** */}
-      {movieData.map((movie) => (
-        <PosterWrap key={movie.id}>
-          <Link to={routes.movieDetail}>
-            <MoviePoster $moviebgUrl={movie.poster_path} />
-          </Link>
-        </PosterWrap>
-      ))}
+      {movieData
+        .filter(
+          (movie) => movie.genre_ids && movie.genre_ids.includes(activeGenreId)
+        )
+        .map((movie) => (
+          <PosterWrap key={movie.id}>
+            <Link to={`/movie/${movie.id}`}>
+              <MoviePoster $moviebgUrl={movie.poster_path} />
+            </Link>
+          </PosterWrap>
+        ))}
 
       {/* ********************************************************************************************************************************************************** */}
-      {tvData.map((tv) => (
-        <PosterWrap key={tv.id}>
-          <Link to={`/tv/${tv.id}`}>
-            <SeriePoster $tvbgUrl={tv.poster_path} />
-          </Link>
-        </PosterWrap>
-      ))}
+      {tvData
+        .filter((tv) => tv.genre_ids && tv.genre_ids.includes(activeGenreId))
+        .map((tv) => (
+          <PosterWrap key={tv.id}>
+            <Link to={`/tv/${tv.id}`}>
+              <SeriePoster $tvbgUrl={tv.poster_path} />
+            </Link>
+          </PosterWrap>
+        ))}
     </Container>
   );
 };

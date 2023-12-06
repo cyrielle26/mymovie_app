@@ -6,7 +6,17 @@ import { Loading } from "../../components/Loading";
 import { ScrollTop } from "../../lib/ScrollTop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
-import { Container, InfoWrap, BgWrap, Bg, Title, Rating } from "./DetailLayout";
+import {
+  Container,
+  InfoWrap,
+  BgWrap,
+  Bg,
+  Title,
+  Rating,
+  MidCon,
+  Bottomcon,
+  Description
+} from "./DetailLayout";
 
 const SerieInfoWrap = styled.div`
   display: flex;
@@ -15,6 +25,11 @@ const SerieInfoWrap = styled.div`
   max-width: 60%;
 
   @media screen and (max-width: 1024px) {
+    max-width: 100%;
+    justify-content: center;
+    @media screen and (max-width: 900px) {
+      margin-top: 15px;
+    }
   }
 `;
 
@@ -22,60 +37,38 @@ const TopCon = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 20px;
+  }
 `;
 
 const Release = styled.div`
-  margin-top: 50px;
-
   @media screen and (max-width: 900px) {
-    margin-top: 20px;
   }
 `;
 
 const Season = styled.div`
-  margin: 45px;
   line-height: 24px;
   font-size: 20px;
   @media screen and (max-width: 1200px) {
-    font-size: 18px;
+    font-size: 16px;
     margin: 0;
   }
 `;
 const NumberOfEpisodes = styled.div`
-  margin: 45px;
   line-height: 24px;
   font-size: 20px;
+  margin-left: 15px;
   @media screen and (max-width: 1200px) {
-    font-size: 18px;
+    font-size: 16px;
     margin: 0;
-    margin-left: 45px;
-  }
-`;
-
-const Description = styled.p`
-  max-width: 60%;
-  width: 100%;
-  margin-top: 50px;
-  padding-top: 20px;
-  opacity: 0.7;
-  line-height: 1em;
-  font-weight: 400;
-  line-height: 2em;
-  margin-bottom: 50px;
-  @media screen and (max-width: 1200px) {
-    margin-top: 25px;
-  }
-  @media screen and (max-width: 900px) {
-    margin-top: 20px;
-  }
-  @media screen and (max-width: 768px) {
-    font-size: 14px;
   }
 `;
 
 const Genre = styled.ul`
-  float: right;
-  padding: 70px;
   font-size: 20px;
   li {
     list-style: disc;
@@ -83,22 +76,14 @@ const Genre = styled.ul`
     margin-bottom: 10px;
   }
   @media screen and (max-width: 1200px) {
-    padding: 50px;
-    bottom: 0%;
   }
 
   @media screen and (max-width: 1024px) {
     font-size: 16px;
-    padding: 40px;
   }
 
   @media screen and (max-width: 900px) {
     font-size: 14px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 50px;
-    margin: 50px;
   }
 `;
 
@@ -146,20 +131,24 @@ export const DetailSerie = (genres) => {
                 </NumberOfEpisodes>
               </SerieInfoWrap>
             </TopCon>
-            <Rating>
-              Rated: {Math.round(detailData.vote_average)}{" "}
-              <FontAwesomeIcon icon={faStar} style={{ color: "#e6c628" }} />
-            </Rating>
-            <Release>
-              from {detailData.first_air_date} to {detailData.last_air_date}
-            </Release>
-            <Genre>
-              {detailData.genres &&
-                detailData.genres.map((genre) => (
-                  <li key={genre.id}>{genre.name}</li>
-                ))}
-            </Genre>
-            <Description>{detailData.overview}</Description>
+            <MidCon>
+              <Release>
+                {detailData.first_air_date} / {detailData.last_air_date}
+              </Release>
+              <Rating>
+                Rated: {Math.round(detailData.vote_average)}{" "}
+                <FontAwesomeIcon icon={faStar} style={{ color: "#e6c628" }} />
+              </Rating>
+            </MidCon>
+            <Bottomcon>
+              <Description>{detailData.overview}</Description>
+              <Genre>
+                {detailData.genres &&
+                  detailData.genres.map((genre) => (
+                    <li key={genre.id}>{genre.name}</li>
+                  ))}
+              </Genre>
+            </Bottomcon>
             {/* <Title>Episodes</Title>
             <EpisodeList>
               {detailData.episodes &&
