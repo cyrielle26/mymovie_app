@@ -166,8 +166,12 @@ export const DetailSerie = (genres) => {
                 ))}
             </EpisodeList>
             <Runtime>Runtime: {detailData.last_episode_to_air.runtime}</Runtime> */}
-          </InfoWrap>
-        </Container>
+                                  </InfoWrap>
+          </Container>
+          
+      
+      
+
       )}
     </>
   );

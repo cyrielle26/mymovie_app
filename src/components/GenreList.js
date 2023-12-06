@@ -151,7 +151,7 @@ export const GenreList = ({
   const [movieData, setMovieData] = useState();
   const [tvData, setTvData] = useState();
 
-  //Get data from the  the api request {genrelist} type: "movie" / "tv"
+  //Get data from the  the api request {genrelist} type: "movie" / "tv" to creat the list
   useEffect(() => {
     const fetchGenresData = async () => {
       try {
@@ -167,15 +167,13 @@ export const GenreList = ({
   }, []);
 
   //onClickHandler change get Id
+
   const handleButtonClick = (genreId) => {
     console.log("Clicked genre id:", genreId);
     setActiveGenreId(genreId);
   };
 
-  //on click event make the button change color when being clicked on
-  const onClickColorHandler = () => {
-    setActiveButton(!activeButton);
-  };
+ 
 
   // fetchPoster
 
@@ -191,7 +189,7 @@ export const GenreList = ({
               isActive={activeGenreId === genre.id ? "true" : undefined} // Check if the genre ID is active + activate the prop style
               onClick={() => {
                 handleButtonClick(genre.id);
-                onClickColorHandler();
+                setActiveButton(!activeButton);
               }}>
               {genre.name}
             </Button>
@@ -205,7 +203,7 @@ export const GenreList = ({
               isActive={activeGenreId === genre.id ? "true" : undefined}
               onClick={() => {
                 handleButtonClick(genre.id);
-                onClickColorHandler();
+                setActiveButton(!activeButton);
               }}>
               {genre.name}
             </Button>

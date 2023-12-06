@@ -133,6 +133,7 @@ const Description = styled.p`
   font-weight: 400;
   line-height: 2em;
 
+
   padding: 20px;
 
   @media screen and (max-width: 1200px) {
