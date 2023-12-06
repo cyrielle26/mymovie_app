@@ -1,5 +1,5 @@
 {
-  "homepage": "https://cyrielle26.github.io/mymovie_app/#",
+  "homepage": "https://cyrielle26.github.io/mymovie_app/",
   "name": "mymovie_app",
   "version": "0.1.0",
   "private": true,
@@ -19,6 +19,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "framer-motion": "^10.16.9",
+    "gh-pages": "^6.1.0",
     "node-fetch": "^2.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

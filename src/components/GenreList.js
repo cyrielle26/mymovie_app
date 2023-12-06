@@ -178,25 +178,6 @@ export const GenreList = ({
   };
 
   // fetchPoster
-  // useEffect(() => {
-  //   const fetchPoster = async (genreId) => {
-  //     try {
-  //       //***********************************************************************
-  //       const { results: discoverMovie } = await discover("movie");
-  //       setMovieData(discoverMovie);
-
-  //       //***********************************************************************
-  //       const { results: discoverSerie } = await discover("tv");
-  //       setTvData(discoverSerie);
-
-  //       //***********************************************************************
-  //     } catch (error) {
-  //       console.error("Error fetching discover data:", error);
-  //     }
-  //   };
-
-  //   fetchPoster();
-  // }, [activeGenreId]);
 
   return (
     <Container>
