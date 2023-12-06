@@ -20,7 +20,7 @@ const Sheader = styled.header`
   top: 0;
   left: 0;
   z-index: 8;
-  @media screen and (max-width: 560px) {
+  @media screen and (max-width: 561px) {
     padding: 5%;
     height: 90px;
   }
@@ -33,7 +33,7 @@ const GnbWrap = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-around;
-  @media screen and (max-width: 560px) {
+  @media screen and (max-width: 561px) {
     display: none;
   }
 `;

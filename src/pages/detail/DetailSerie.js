@@ -43,6 +43,10 @@ const TopCon = styled.div`
     align-items: flex-start;
     margin-top: 20px;
   }
+  @media screen and (max-width: 480px) {
+    font-size: 14px;
+    margin-top: 20px;
+  }
 `;
 
 const Release = styled.div`
