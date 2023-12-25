@@ -10,6 +10,7 @@ position: relative;
 
 `
 const _Footer = styled.footer`
+	width: 100vw;
 	position: absolute;
 	bottom: 0;
 	left: 0;
