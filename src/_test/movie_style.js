@@ -9,6 +9,7 @@ export const Container = styled.div`
 	left: 0;
 	padding: 200px 5%;
 	width: 100%;
+	height: 100 %;
 	@media screen and (max-width: 320px) and (min-width: 300px) {
 		padding: 150px 25px;
 	}
@@ -104,12 +105,12 @@ margin: 100px
 	height: 100%;
 	display: flex;
 `
-const MoviePoster = styled.div`
+export const MoviePoster = styled.div`
 	height: 250px;
 	width: 185px;
 	border-radius: 5px;
 	box-shadow: 10px 10px 10px black;
 	background: #f9f9f9;
-	background: url(${IMG_URL}/w185${(props) => props.$moviebgUrl}) no-repeat
+	background: url(${IMG_URL}/w500${(props) => props.$moviebgUrl}) no-repeat
 		center / cover;
 `

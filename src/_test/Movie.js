@@ -41,13 +41,13 @@ export const Movie = ({
 	useEffect(() => {
 		const fetchDiscoverData = async () => {
 			try {
-				let allResults = []
 				let currentPage = 1
 				const { results: discoverResults } = await discover(
 					"movie",
 					genre,
 					currentPage
 				)
+				let allResults = discoverResults.totat_pages
 				// Check if there are more pages
 				while (discoverResults.results && discoverResults.results.length > 0) {
 					// Append the results of the current page to the array
