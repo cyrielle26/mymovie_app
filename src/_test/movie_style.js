@@ -4,15 +4,17 @@ import styled from "styled-components"
 import { IMG_URL } from "../constants"
 
 export const Container = styled.div`
-	position: absolute;
-	top: 0;
-	left: 0;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
 	padding: 200px 5%;
 	width: 100%;
-	height: 100 %;
+
 	@media screen and (max-width: 320px) and (min-width: 300px) {
 		padding: 150px 25px;
 	}
+
+	width: 100%;
 `
 
 export const Title = styled.h3`
@@ -71,7 +73,7 @@ export const SubTitle = styled.h3`
 export const GenreWrap = styled.ul`
 	margin-top: 45px;
 	margin-bottom: 40px;
-	width: 85%;
+	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
@@ -101,9 +103,29 @@ export const GenreWrap = styled.ul`
 	}
 `
 export const PosterWrap = styled.div`
-margin: 100px
-	height: 100%;
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	column-gap: 35px;
+	row-gap: 30px;
+	@media screen and (max-width: 1200px) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	@media screen and (max-width: 1024px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	@media screen and (max-width: 900px) {
+	}
+	@media screen and (max-width: 600px) {
+		column-gap: 20px;
+		row-gap: 10px;
+	}
+	@media screen and (max-width: 480px) and (min-width: 300px) {
+		grid-template-columns: repeat(1, 1fr);
+		column-gap: 10px;
+		row-gap: 20px;
+	}
 `
 export const MoviePoster = styled.div`
 	height: 250px;

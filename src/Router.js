@@ -3,7 +3,7 @@
 import { HashRouter, Routes, Route } from "react-router-dom"
 import { routes } from "./routes"
 import { Home } from "./pages/home/Home"
-import { Movie } from "./_test/Movie"
+import { Movie } from "./pages/movie/Movie"
 import { Serie } from "./pages/series/Serie"
 import { DetailMovie } from "./pages/detail/DetailMovie"
 import { DetailSerie } from "./pages/detail/DetailSerie"

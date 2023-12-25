@@ -5,21 +5,19 @@ import { MainBanner } from "../../components/MainBanner"
 import { Loading } from "../../components/Loading"
 import { WebpageTitle } from "../../components/WebpageTitle"
 import { nowPlayingMovie } from "../../api"
-import { GenreList } from "../../components/GenreList"
-
+import { MovieGenre } from "../../_test/MovieGenre"
 import styled from "styled-components"
-import { IMG_URL } from "../../constants"
-import { genreList } from "../../api"
-import { Link } from "react-router-dom"
+
+// const Container = styled.div`
+// 	height: 100%;
+// 	widht: 100vw;
+// 	position: relative;
+// 	background-color: red;
+// `
 
 export const Movie = () => {
 	const [isLoading, setIsLoading] = useState()
 	const [nowPlayingMovieData, setNowPlayingMovieData] = useState()
-	const [activeButton, setActiveButton] = useState(null)
-
-	const [discoverData, setDiscoverData] = useState([])
-
-	//Get data from the  the api request {genrelist} type: "movie" / "tv"
 
 	useEffect(() => {
 		;(async () => {
@@ -42,19 +40,17 @@ export const Movie = () => {
 					{nowPlayingMovieData && (
 						<>
 							<WebpageTitle titleName={"Movies"} />
-							<MainBanner
-								data={nowPlayingMovieData[0]}
-								showTitleBlock={false}
-								showBlurr={true}
-							/>
+							<MovieGenre
+								titleName={"Don't know what movie to watch?"}
+								subtitleName={"Movie genres"}
+								type={"movie"}>
+								<MainBanner
+									data={nowPlayingMovieData[0]}
+									showTitleBlock={false}
+									showBlurr={true}></MainBanner>
+							</MovieGenre>
 						</>
 					)}
-
-					<GenreList
-						titleName={"Don't know what movie to watch?"}
-						subtitleName={"Movie genres"}
-						type={"movie"}
-					/>
 				</>
 			)}
 		</>

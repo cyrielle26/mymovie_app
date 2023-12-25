@@ -1,7 +1,6 @@
 /** @format */
-import styled from "styled-components"
-import { genreList } from "../api"
-import { discover } from "../api"
+
+import { genreList, discover } from "../api"
 import { useState, useEffect } from "react"
 import {
 	Container,
@@ -13,7 +12,7 @@ import {
 	MoviePoster,
 } from "./movie_style"
 
-export const Movie = ({
+export const MovieGenre = ({
 	type,
 	titleName,
 	subtitleName,
@@ -27,7 +26,7 @@ export const Movie = ({
 	useEffect(() => {
 		const fetchGenresData = async () => {
 			try {
-				const getGenreData = await genreList("movie")
+				const getGenreData = await genreList(type)
 				setGenresData(getGenreData.genres)
 			} catch (error) {
 				console.error("Error fetching genres data:", error)
@@ -43,7 +42,7 @@ export const Movie = ({
 			try {
 				let currentPage = 1
 				const { results: discoverResults } = await discover(
-					"movie",
+					type,
 					genre,
 					currentPage
 				)
@@ -96,12 +95,12 @@ export const Movie = ({
 							</Button>
 						)
 					})}
-					{filteredMovies.map((movie) => (
-						<PosterWrap key={movie.id}>
-							<MoviePoster $moviebgUrl={movie.backdrop_path} />
-						</PosterWrap>
-					))}
 				</GenreWrap>
+				<PosterWrap>
+					{filteredMovies.map((movie) => (
+						<MoviePoster key={movie.id} $moviebgUrl={movie.backdrop_path} />
+					))}
+				</PosterWrap>
 			</Container>
 		</>
 	)
