@@ -10,7 +10,10 @@ import {
 	Button,
 	PosterWrap,
 	MoviePoster,
+	MovieTitle,
+	ConWrap,
 } from "./movie_style"
+import { Link } from "react-router-dom"
 
 export const MovieGenre = ({
 	type,
@@ -22,6 +25,7 @@ export const MovieGenre = ({
 	const [genresData, setGenresData] = useState([])
 	const [activeButton, setActiveButton] = useState(null)
 	const [discoverData, setDiscoverData] = useState([])
+	const [hoveredMovieId, setHoveredMovieId] = useState(null)
 
 	useEffect(() => {
 		const fetchGenresData = async () => {
@@ -98,7 +102,20 @@ export const MovieGenre = ({
 				</GenreWrap>
 				<PosterWrap>
 					{filteredMovies.map((movie) => (
-						<MoviePoster key={movie.id} $moviebgUrl={movie.backdrop_path} />
+						<ConWrap>
+							<Link to={`/${type}/${movie.id}`}>
+								<MoviePoster
+									key={movie.id}
+									$moviebgUrl={movie.backdrop_path}
+									onMouseEnter={() => setHoveredMovieId(movie.id)}
+									onMouseLeave={() => setHoveredMovieId(null)}
+								/>
+								{/* <MovieTitle>{movie.title}</MovieTitle> */}
+								{hoveredMovieId === movie.id && (
+									<MovieTitle>{movie.title}</MovieTitle>
+								)}
+							</Link>
+						</ConWrap>
 					))}
 				</PosterWrap>
 			</Container>

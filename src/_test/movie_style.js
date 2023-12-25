@@ -15,6 +15,11 @@ export const Container = styled.div`
 	}
 
 	width: 100%;
+
+	@media screen and (max-width: 430px) and (min-width: 300px) {
+		align-items: center;
+		padding: 150px 5%;
+	}
 `
 
 export const Title = styled.h3`
@@ -24,12 +29,8 @@ export const Title = styled.h3`
 	@media screen and (max-width: 480px) {
 		font-size: 16px;
 	}
-	@media screen and (max-width: 320px) and (min-width: 300px) {
-		font-weight: 900;
-		padding-right: 25px;
-		letter-spacing: 1px;
-		line-height: 20px;
-		margin-bottom: 30px;
+	@media screen and (max-width: 430px) and (min-width: 300px) {
+		margin-bottom: 20px;
 	}
 `
 
@@ -62,6 +63,9 @@ export const SubTitle = styled.h3`
 	font-weight: 500;
 	@media screen and (max-width: 480px) {
 		font-size: 18px;
+	}
+	@media screen and (max-width: 430px) and (min-width: 300px) {
+		font-size: 14px;
 	}
 	@media screen and (max-width: 320px) and (min-width: 300px) {
 		font-size: 18px;
@@ -104,27 +108,45 @@ export const GenreWrap = styled.ul`
 `
 export const PosterWrap = styled.div`
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat(8, 1fr);
 	column-gap: 35px;
 	row-gap: 30px;
 	@media screen and (max-width: 1200px) {
 		grid-template-columns: repeat(4, 1fr);
 	}
 
-	@media screen and (max-width: 1024px) {
+	@media screen and (max-width: 1900px) {
+		grid-template-columns: repeat(7, 1fr);
+	}
+	@media screen and (max-width: 1680px) {
+		grid-template-columns: repeat(6, 1fr);
+	}
+	@media screen and (max-width: 1430px) {
+		grid-template-columns: repeat(5, 1fr);
+	}
+
+	@media screen and (max-width: 1180px) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	@media screen and (max-width: 960px) {
 		grid-template-columns: repeat(3, 1fr);
 	}
 
-	@media screen and (max-width: 900px) {
+	@media screen and (max-width: 740px) {
+		grid-template-columns: repeat(2, 1fr);
 	}
-	@media screen and (max-width: 600px) {
-		column-gap: 20px;
-		row-gap: 10px;
+	// @media screen and (max-width: 600px) {
+	// 	column-gap: 25px;
+	// 	row-gap: 20px;
+	// }
+	@media screen and (max-width: 450px) {
+		column-gap: 16px;
+		row-gap: 16px;
 	}
-	@media screen and (max-width: 480px) and (min-width: 300px) {
+	@media screen and (max-width: 430px) and (min-width: 300px) {
 		grid-template-columns: repeat(1, 1fr);
-		column-gap: 10px;
-		row-gap: 20px;
+		row-gap: 30px;
 	}
 `
 export const MoviePoster = styled.div`
@@ -135,4 +157,24 @@ export const MoviePoster = styled.div`
 	background: #f9f9f9;
 	background: url(${IMG_URL}/w500${(props) => props.$moviebgUrl}) no-repeat
 		center / cover;
+	@media screen and (max-width: 430px) and (min-width: 300px) {
+		height: 350px;
+		width: 285px;
+	}
+`
+export const MovieTitle = styled.div`
+	width: 100%;
+	background-color: rgba(60, 110, 214, 0.8);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+
+	padding: 5px;
+	border-radius: 5px;
+`
+
+export const ConWrap = styled.div`
+	position: relative;
+	display: flex;
+	flex-direction: column;
 `
