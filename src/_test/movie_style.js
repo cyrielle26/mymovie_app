@@ -9,7 +9,7 @@ export const Container = styled.div`
 	flex-direction: column;
 	padding: 200px 5%;
 	width: 100%;
-
+	height: 100%;
 	@media screen and (max-width: 320px) and (min-width: 300px) {
 		padding: 150px 25px;
 	}
@@ -164,6 +164,7 @@ export const MoviePoster = styled.div`
 `
 export const MovieTitle = styled.div`
 	width: 100%;
+	text-align: center;
 	background-color: rgba(60, 110, 214, 0.8);
 	position: absolute;
 	bottom: 0;

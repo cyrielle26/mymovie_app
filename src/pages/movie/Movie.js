@@ -30,7 +30,8 @@ export const Movie = () => {
 						<MovieGenre
 							titleName={"Don't know what movie to watch?"}
 							subtitleName={"Movie genres"}
-							type={"movie"}></MovieGenre>
+							type={"movie"}
+							titleType={"title"}></MovieGenre>
 					</>
 				</>
 			)}

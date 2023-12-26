@@ -3,13 +3,16 @@
 import styled from "styled-components"
 
 const Container = styled.footer`
-	width: 100%;
+	position: relative;
+	min-height: 35vh;
+	height: 100%;
 `
+
 const _Footer = styled.footer`
+	position: absolute;
+	bottom: 0;
 	width: 100%;
-	max-height: 95px;
-	padding: 50px;
-	margin-top: 80px;
+	height: 3.5rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -18,7 +21,9 @@ const _Footer = styled.footer`
 	}
 
 	@media screen and (max-width: 480px) {
-		padding-bottom: 200px;
+		height: 15rem;
+		align-items: flex-start;
+		padding-top: 25px;
 	}
 `
 

@@ -9,16 +9,18 @@ export const Serie = () => {
 	const [isLoading, setIsLoading] = useState(true)
 
 	useEffect(() => {
-		;(async () => {
+		const fetchMovieGenres = async () => {
 			try {
-				;<MovieGenre />
+				// Assuming MovieGenre is an asynchronous operation (e.g., fetching data)
+				await MovieGenre()
 			} catch (error) {
-				console.error("Error:" + error)
+				console.error("Error:", error)
 			}
 			setIsLoading(false)
-		})()
-	}, [])
+		}
 
+		fetchMovieGenres()
+	}, [])
 	return (
 		<>
 			{isLoading ? (
@@ -30,7 +32,9 @@ export const Serie = () => {
 						<MovieGenre
 							titleName={"Don't know what serie to watch?"}
 							subtitleName={"Series genres"}
-							type={"tv"}></MovieGenre>
+							type={"tv"}
+							titleType={"name"}
+							currentPage={1}></MovieGenre>
 					</>
 				</>
 			)}

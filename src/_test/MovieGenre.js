@@ -20,6 +20,7 @@ export const MovieGenre = ({
 	titleName,
 	subtitleName,
 	genre,
+	titleType,
 	currentPage,
 }) => {
 	const [genresData, setGenresData] = useState([])
@@ -110,9 +111,9 @@ export const MovieGenre = ({
 									onMouseEnter={() => setHoveredMovieId(movie.id)}
 									onMouseLeave={() => setHoveredMovieId(null)}
 								/>
-								{/* <MovieTitle>{movie.title}</MovieTitle> */}
+
 								{hoveredMovieId === movie.id && (
-									<MovieTitle>{movie.title}</MovieTitle>
+									<MovieTitle>{movie[titleType]}</MovieTitle>
 								)}
 							</Link>
 						</ConWrap>
